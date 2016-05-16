@@ -1,22 +1,42 @@
 package Modelo;
 
-import java.io.IOException;
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
+import java.util.*;
 
+/**
+ * 
+ */
 public abstract class Amortizacion {
-    public String obtenerTipoCambio() throws IOException{
-        try{
-            Document doc = Jsoup.connect("http://indicadoreseconomicos.bccr.fi.cr/indicadoreseconomicos/cuadros/frmvercatcuadro.aspx?CodCuadro=400").get();
-            Element table = doc.getElementById("theTable400");
-            Elements tds = table.getElementsByTag("td");
-            //System.out.println(tds.get(66).text());
-            return tds.get(66).text();
-        }
-        catch (Exception e ) {
-           return "Fallo en la conexión";
-        }
+
+    /**
+     * Default constructor
+     */
+    public Amortizacion() {
+    }
+
+    
+    public float monto_prestamo;
+    public int plazo;
+    public double interes_anual;
+    public double montoAmortizacion;
+    public double montoCuota;
+    public double monto_interesPeriodo;
+    public double montoDeuda;
+    protected LinkedList<Double> resultadoCuota  = new LinkedList<Double>();
+    protected LinkedList<Double> resultadoAmortizaciones  = new LinkedList<Double>();
+    protected LinkedList<Double> resultadoDeuda  = new LinkedList<Double>();
+    protected LinkedList<Double> resultadoInteres  = new LinkedList<Double>();
+
+    public abstract void calcularDeuda();
+    public abstract void calcularAmortizacion();
+    public abstract void calcularInteresPeriodo();
+    public abstract void calcularCuota();
+    
+    private String obtenerTipoCambio(){       
+        Calendar fecha = new GregorianCalendar();
+        String fechaActual = Integer.toString(fecha.get(Calendar.DATE))+"/"+((fecha.get(Calendar.MONTH))+1)+"/"+fecha.get(Calendar.YEAR);
+        cr.fi.bccr.sdde.ws.WsIndicadoresEconomicos cliente = new cr.fi.bccr.sdde.ws.WsIndicadoresEconomicos();
+        String tipoCambio = cliente.getWsIndicadoresEconomicosSoap().obtenerIndicadoresEconomicosXML("317", fechaActual, fechaActual, "Mell", "N");
+        tipoCambio = tipoCambio.substring(196,204);
+        return tipoCambio;
     }
 }
