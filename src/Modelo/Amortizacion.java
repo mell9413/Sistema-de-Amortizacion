@@ -3,18 +3,15 @@ package Modelo;
 import java.util.*;
 
 public abstract class Amortizacion {
-
-    public Amortizacion() {
-    }
-
     
-    public float monto_prestamo;
+    public float montoPrestamo;
     public int plazo;
-    public double interes_anual;
+    public double interesAnual;
     public double montoAmortizacion;
     public double montoCuota;
-    public double monto_interesPeriodo;
+    public double montoInteresPeriodo;
     public double montoDeuda;
+//    protected Cliente cliente;
     protected LinkedList<Double> resultadoCuota  = new LinkedList<Double>();
     protected LinkedList<Double> resultadoAmortizaciones  = new LinkedList<Double>();
     protected LinkedList<Double> resultadoDeuda  = new LinkedList<Double>();
@@ -25,12 +22,62 @@ public abstract class Amortizacion {
     public abstract void calcularInteresPeriodo();
     public abstract void calcularCuota();
     
-    private String obtenerTipoCambio(){       
-        Calendar fecha = new GregorianCalendar();
-        String fechaActual = Integer.toString(fecha.get(Calendar.DATE))+"/"+((fecha.get(Calendar.MONTH))+1)+"/"+fecha.get(Calendar.YEAR);
-        cr.fi.bccr.sdde.ws.WsIndicadoresEconomicos cliente = new cr.fi.bccr.sdde.ws.WsIndicadoresEconomicos();
-        String tipoCambio = cliente.getWsIndicadoresEconomicosSoap().obtenerIndicadoresEconomicosXML("317", fechaActual, fechaActual, "Mell", "N");
-        tipoCambio = tipoCambio.substring(196,204);
-        return tipoCambio;
+//    public Amortizacion(DTOAmortizacion dtoAmortizacion) {
+//        this.montoPrestamo = dtoAmortizacion.getMontoPrestamo();
+//        this.plazo = dtoAmortizacion.getPlazo();
+//        this.interesAnual = dtoAmortizacion.getInteresAnual();
+//        this.cliente = dtoAmortizacion.getCliente();
+//    }
+    
+    public Amortizacion(float montoPrestamo,int plazo,double interesAnual) {
+        this.montoPrestamo = montoPrestamo;
+        this.plazo = plazo;
+        this.interesAnual = interesAnual;
     }
+
+    public float getMontoPrestamo() {
+        return montoPrestamo;
+    }
+
+    public int getPlazo() {
+        return plazo;
+    }
+
+    public double getInteresAnual() {
+        return interesAnual;
+    }
+
+    public double getMontoAmortizacion() {
+        return montoAmortizacion;
+    }
+
+    public double getMontoCuota() {
+        return montoCuota;
+    }
+
+    public double getMontoInteresPeriodo() {
+        return montoInteresPeriodo;
+    }
+
+    public double getMontoDeuda() {
+        return montoDeuda;
+    }
+
+    public LinkedList<Double> getResultadoCuota() {
+        return resultadoCuota;
+    }
+
+    public LinkedList<Double> getResultadoAmortizaciones() {
+        return resultadoAmortizaciones;
+    }
+
+    public LinkedList<Double> getResultadoDeuda() {
+        return resultadoDeuda;
+    }
+
+    public LinkedList<Double> getResultadoInteres() {
+        return resultadoInteres;
+    }
+    
+    
 }

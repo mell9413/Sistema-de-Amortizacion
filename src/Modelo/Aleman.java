@@ -1,121 +1,48 @@
+package Modelo;
 
-import Modelo.Amortizacion;
-import java.util.*;
-
-/**
- * 
- */
 public class Aleman extends Amortizacion {
-
-
-    public Aleman() {
- 
+    
+//    public Aleman(DTOAmortizacion dtoAmortizacion){
+//        super(DTOAmortizacion dtoAmortizacion);
+//    }
+    
+    public Aleman(float montoPrestamo,int plazo,double interesAnual){
+        super(montoPrestamo,plazo,interesAnual);
     }
     
-
-
-
-
-	public void calcularAmortizacion() {
-		for (int i = 0; i < plazo; i++ ){
-    	montoAmortizacion =+ (monto_prestamo / plazo);
-		getAmortizacion().add(montoAmortizacion);
+    @Override
+    public void calcularAmortizacion() {
+        for (int i = 0; i < plazo; i++ ){
+            montoAmortizacion =+ (montoPrestamo / plazo);
+            resultadoAmortizaciones.add(montoAmortizacion);
+        }
     }
-	}
-	
-
-	   public void calcularDeuda() {
-	   	int periodoTranscurrido = 0;
-	   	for(int i= 0 ;i <= plazo; i++) {
-	   		   montoDeuda =(((monto_prestamo / plazo ) *(plazo - periodoTranscurrido)));
-	   		   getDeudas().add(montoDeuda);
-	   		   periodoTranscurrido++;
-	   	  
-	   		}
-	   }
-	
-	   
-	   
-	  
+    
+    @Override
+    public void calcularDeuda() {
+        int periodoTranscurrido = 0;
+        for(int i= 0 ;i <= plazo; i++) {
+            montoDeuda =(((montoPrestamo / plazo ) *(plazo - periodoTranscurrido)));
+            resultadoDeuda.add(montoDeuda);
+            periodoTranscurrido++;
+         }
+   }
+    
+    @Override
     public void calcularInteresPeriodo() {
-    	
-    	for( int i = 0; i < getDeudas().size() ; i++){
-    		
-    		monto_interesPeriodo =+ getDeudas().get(i) * (interes_anual * 0.01);
-    		getInteresPeriodo().add(monto_interesPeriodo);
+    	for( int i = 0; i < resultadoDeuda.size() ; i++){
+            montoInteresPeriodo =+ resultadoDeuda.get(i) * (interesAnual * 0.01);
+            resultadoInteres.add(montoInteresPeriodo);
     	}
     }
     
-
-    
-
-	@Override
-	public void calcularCuota() {
-		for (int i = 0; i < getInteresPeriodo().size(); i++){
-			if (getInteresPeriodo().get(i) > 0){ //Aqui hay que ver esta validacion
-			montoCuota =+ getInteresPeriodo().get(i) + montoAmortizacion;
-			getCuotas().add(montoCuota);
-		}
-		}
-	}
-
-
-
-
-	public LinkedList<Double> getDeudas() {
-		return resultadoDeuda;
-	}
-
-
-
-
-	public void setDeudas(LinkedList<Double> deudas) {
-		this.resultadoDeuda = deudas;
-	}
-
-
-
-
-	public LinkedList<Double> getCuotas() {
-		return resultadoCuota;
-	}
-
-
-
-
-	public void setCuotas(LinkedList<Double> cuotas) {
-		this.resultadoCuota = cuotas;
-	}
-
-
-
-
-	public LinkedList<Double> getInteresPeriodo() {
-		return resultadoInteres;
-	}
-
-
-
-
-	public void setInteresPeriodo(LinkedList<Double> interesPeriodo) {
-		this.resultadoInteres = interesPeriodo;
-	}
-
-
-
-
-	public LinkedList<Double> getAmortizacion() {
-		return resultadoAmortizaciones;
-	}
-
-
-
-
-	public void setAmortizacion(LinkedList<Double> amortizacion) {
-		this.resultadoAmortizaciones = amortizacion;
-	}
-    	
-    
-
- 
+    @Override
+    public void calcularCuota() {
+        for (int i = 0; i < resultadoInteres.size(); i++){
+            if (resultadoInteres.get(i) > 0){ //Aqui hay que ver esta validacion
+                montoCuota =+ resultadoInteres.get(i) + montoAmortizacion;
+                resultadoCuota.add(montoCuota);
+            }
+        }
+    }
 }

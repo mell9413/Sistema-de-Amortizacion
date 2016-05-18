@@ -1,69 +1,61 @@
+package Modelo;
 
-import Modelo.Amortizacion;
-import java.util.*;
-
-/**
- * 
- */
 public class Americano extends Amortizacion {
 
-
-    public Americano() {
+//    public Americano(DTOAmortizacion dtoAmortizacion){
+//        super(DTOAmortizacion dtoAmortizacion);
+//    }
+    
+    public Americano(float montoPrestamo,int plazo,double interesAnual){
+        super(montoPrestamo,plazo,interesAnual);
     }
 
+    @Override
     public void calcularDeuda() {
     	for (int i = 1; i <= plazo; i++){
-    		
-    		if (i == plazo){
-    			montoDeuda =+ 0;
-    			resultadoDeuda.add(montoDeuda);
-    		}else{
-    			montoDeuda =+ monto_prestamo;
-    			resultadoDeuda.add(montoDeuda);
-    		}
+            if (i == plazo){
+                montoDeuda =+ 0;
+                resultadoDeuda.add(montoDeuda);
+            }
+            else{
+                montoDeuda =+ montoPrestamo;
+                resultadoDeuda.add(montoDeuda);
+            }
     	}
-	}
-
+    }
     
+    @Override
     public void calcularAmortizacion() {
     	for (int i = 1; i <= plazo; i++){
-    		
-    		if (i == plazo){
-    			montoAmortizacion =+ monto_prestamo;
-    			resultadoAmortizaciones.add(montoAmortizacion);
-    		}else{
-    			montoAmortizacion =+ 0;
-    			resultadoAmortizaciones.add(montoAmortizacion);
-    		}
+            if (i == plazo){
+                montoAmortizacion =+ montoPrestamo;
+                resultadoAmortizaciones.add(montoAmortizacion);
+            }
+            else{
+                montoAmortizacion =+ 0;
+                resultadoAmortizaciones.add(montoAmortizacion);
+            }
     	}
-    	
-	}
+    }
     
-  
+    @Override
     public void calcularInteresPeriodo() {
-    	
-    	for (int i = 0; i < plazo; i++){
-    		 monto_interesPeriodo =+ monto_prestamo * (interes_anual * 0.01);
-    		 resultadoInteres.add(monto_interesPeriodo);
+        for (int i = 0; i < plazo; i++){
+            montoInteresPeriodo =+ montoPrestamo * (interesAnual * 0.01);
+            resultadoInteres.add(montoInteresPeriodo);
     	}
-	}
-
- 
-	@Override
-	public void calcularCuota() {
-		for (int i = 1; i <= plazo; i++){
-			
-			if (i == plazo){
-				montoCuota =+ monto_prestamo + (monto_prestamo * (interes_anual * 0.01));
-				resultadoCuota.add(montoCuota);
-			} else{
-				montoCuota =+ (monto_prestamo * (interes_anual * 0.01));
-				resultadoCuota.add(montoCuota);
-			}
-		}
-	
-	}
-		
-	
-
+    }
+    
+    @Override
+    public void calcularCuota() {
+        for (int i = 1; i <= plazo; i++){
+            if (i == plazo){
+                montoCuota =+ montoPrestamo + (montoPrestamo * (interesAnual * 0.01));
+                resultadoCuota.add(montoCuota);
+            } else{
+                montoCuota =+ (montoPrestamo * (interesAnual * 0.01));
+                resultadoCuota.add(montoCuota);
+            }
+        }
+    }
 }
