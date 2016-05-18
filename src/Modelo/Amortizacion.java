@@ -2,14 +2,8 @@ package Modelo;
 
 import java.util.*;
 
-/**
- * 
- */
 public abstract class Amortizacion {
 
-    /**
-     * Default constructor
-     */
     public Amortizacion() {
     }
 
