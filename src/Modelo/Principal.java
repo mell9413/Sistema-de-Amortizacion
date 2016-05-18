@@ -1,5 +1,6 @@
 package Modelo;
 
+import Vistas.VistaGUI;
 import java.io.IOException;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -60,5 +61,8 @@ public class Principal {
         System.out.println(americano1.getResultadoCuota());
         System.out.println(americano1.getResultadoInteres());
         System.out.println(americano1.getResultadoAmortizaciones());
+        
+        VistaGUI vista = new VistaGUI();
+        vista.setVisible(true);
     }
 }
