@@ -30,7 +30,7 @@ public class Aleman extends Amortizacion {
     
     @Override
     public void calcularInteresPeriodo() {
-    	for( int i = 0; i < resultadoDeuda.size() ; i++){
+    	for( int i = 0; i < resultadoDeuda.size()-1 ; i++){
             montoInteresPeriodo =+ resultadoDeuda.get(i) * (interesAnual * 0.01);
             resultadoInteres.add(montoInteresPeriodo);
     	}

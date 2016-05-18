@@ -1,30 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package DTO;
 
-
-public class DTO {
+public class DTOAmortizacion {
     
-   
-    private String nombre;
     private int plazo;
     private double interes_anual;
-     private float monto_prestamo;
+    private float monto_prestamo;
     private String tipoAmortizacion;
     private String moneda;
   
-    public DTO(){
-    }
-    
-    public void setNombre(String nombre){
-        this.nombre = nombre;
-    }
-    
-    public String GetNombre(){
-     return nombre;
+    public DTOAmortizacion(){
     }
     
     public void SetPlazo(int  plazo){

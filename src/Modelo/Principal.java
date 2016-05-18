@@ -62,7 +62,7 @@ public class Principal {
         System.out.println(americano1.getResultadoInteres());
         System.out.println(americano1.getResultadoAmortizaciones());
         
-        VistaGUI vista = new VistaGUI();
-        vista.setVisible(true);
+//        VistaGUI vista = new VistaGUI();
+//        vista.setVisible(true);
     }
 }
