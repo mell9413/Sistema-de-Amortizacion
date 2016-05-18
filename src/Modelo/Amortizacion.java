@@ -4,14 +4,14 @@ import java.util.*;
 
 public abstract class Amortizacion {
     
-    public float montoPrestamo;
-    public int plazo;
-    public double interesAnual;
-    public double montoAmortizacion;
-    public double montoCuota;
-    public double montoInteresPeriodo;
-    public double montoDeuda;
-//    protected Cliente cliente;
+    protected float montoPrestamo;
+    protected int plazo;
+    protected double interesAnual;
+    protected double montoAmortizacion;
+    protected double montoCuota;
+    protected double montoInteresPeriodo;
+    protected double montoDeuda;
+//    protected Cliente cliente; OJOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO!!!!!!!!!!!!!!!!!!
     protected LinkedList<Double> resultadoCuota  = new LinkedList<Double>();
     protected LinkedList<Double> resultadoAmortizaciones  = new LinkedList<Double>();
     protected LinkedList<Double> resultadoDeuda  = new LinkedList<Double>();
