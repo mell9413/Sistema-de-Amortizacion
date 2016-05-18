@@ -1,6 +1,8 @@
 
 package DTO;
 
+import java.util.LinkedList;
+
 public class DTOAmortizacion {
     
     private int plazo;
@@ -8,9 +10,46 @@ public class DTOAmortizacion {
     private float monto_prestamo;
     private String tipoAmortizacion;
     private String moneda;
-  
-    public DTOAmortizacion(){
+    private LinkedList<Double> resultadoCuota;
+    private LinkedList<Double> resultadoAmortizaciones;
+    private LinkedList<Double> resultadoDeuda ;
+    private LinkedList<Double> resultadoInteres ;
+    
+        public DTOAmortizacion(){
     }
+
+    public LinkedList<Double> getResultadoCuota() {
+        return resultadoCuota;
+    }
+
+    public void setResultadoCuota(LinkedList<Double> resultadoCuota) {
+        this.resultadoCuota = resultadoCuota;
+    }
+
+    public LinkedList<Double> getResultadoAmortizaciones() {
+        return resultadoAmortizaciones;
+    }
+
+    public void setResultadoAmortizaciones(LinkedList<Double> resultadoAmortizaciones) {
+        this.resultadoAmortizaciones = resultadoAmortizaciones;
+    }
+
+    public LinkedList<Double> getResultadoDeuda() {
+        return resultadoDeuda;
+    }
+
+    public void setResultadoDeuda(LinkedList<Double> resultadoDeuda) {
+        this.resultadoDeuda = resultadoDeuda;
+    }
+
+    public LinkedList<Double> getResultadoInteres() {
+        return resultadoInteres;
+    }
+
+    public void setResultadoInteres(LinkedList<Double> resultadoInteres) {
+        this.resultadoInteres = resultadoInteres;
+    }
+    
     
     public void SetPlazo(int  plazo){
         this.plazo = plazo;
