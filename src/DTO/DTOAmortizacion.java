@@ -15,7 +15,7 @@ public class DTOAmortizacion {
     private LinkedList<Double> resultadoDeuda ;
     private LinkedList<Double> resultadoInteres ;
     
-        public DTOAmortizacion(){
+    public DTOAmortizacion(){
           
     }
 

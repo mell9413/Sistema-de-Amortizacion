@@ -30,17 +30,9 @@ public abstract class Amortizacion {
 //    }
     
     public Amortizacion(float montoPrestamo,int plazo,double interesAnual) {
-        this.montoPrestamo = getMontoPrestamo();
-        this.plazo = getPlazo();
-        this.interesAnual = getInteresAnual();
-  //      this.montoAmortizacion = getMontoAmortizacion();
-  //  this.montoCuota = getMontoCuota();
-   // this.montoDeuda = getMontoDeuda();
-   // this.montoInteresPeriodo = getMontoInteresPeriodo();
-  //  this.resultadoAmortizaciones = getResultadoAmortizaciones();
-  //  this.resultadoCuota = getResultadoCuota();
- //   this.resultadoDeuda = getResultadoDeuda();
- //   this.resultadoInteres = getResultadoInteres();
+        this.montoPrestamo = montoPrestamo;
+        this.plazo = plazo;
+        this.interesAnual = interesAnual;
     }
 
     public float getMontoPrestamo() {

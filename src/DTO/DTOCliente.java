@@ -15,7 +15,7 @@ public class DTOCliente {
      private String primerApellido;
      private String segundoApellido;
      
-       public DTOCliente(){
+    public DTOCliente(){
     }
 
     public String getNombre() {
