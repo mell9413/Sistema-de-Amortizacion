@@ -9,14 +9,23 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 public class Adaptador {
+    
+    private final static Adaptador instancia = new Adaptador();
+    
     private Process backEndChuky;    
     private String host;
     private int puerto;
     private Socket socketClientChuky;
-    private String resultadoBackEndChuky ="";
+    private String resultadoBackEndChuky;
     private String tipoCambio;
     private String fechaActual;
 
+    private Adaptador(){}
+    
+    public static Adaptador getInstancia(){
+        return instancia;
+    }
+    
     public void runBackEndChucky () throws IOException {        
         String pythonScriptPath = (new File (".")).getCanonicalPath()+"\\src\\Modelo\\BackEndChucky.py";
         String[] cmd = new String[2];
@@ -39,7 +48,8 @@ public class Adaptador {
             OutputStream outputSocket = socketClientChuky.getOutputStream();
             String str = "";
             byte buf[] = str.getBytes();
-            outputSocket.write(buf);            
+            outputSocket.write(buf);
+            resultadoBackEndChuky = "";
             while ((c = inputSocket.read()) != -1) {
               resultadoBackEndChuky += (char) c;
             }            
@@ -69,7 +79,7 @@ public class Adaptador {
         return tipoCambio;
     }
 
-    public String getFechaActual() {
+    private String getFechaActual() {
         Calendar fecha = new GregorianCalendar();
         String fechaActual = Integer.toString(fecha.get(Calendar.DATE))+"/"+((fecha.get(Calendar.MONTH))+1)+"/"+fecha.get(Calendar.YEAR);
         return fechaActual;

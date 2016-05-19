@@ -9,7 +9,7 @@ import java.util.GregorianCalendar;
 public class Principal {
     
     public static void main(String[] args) throws IOException {
-        Adaptador adaptador = new Adaptador();
+        Adaptador adaptador = Adaptador.getInstancia();
         adaptador.runBackEndChucky();      
         System.out.println(adaptador.getResultadoBackEndChuky());
         adaptador.killBackEndChucky();
