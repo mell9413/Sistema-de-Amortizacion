@@ -6,8 +6,8 @@ import java.util.LinkedList;
 public class DTOAmortizacion {
     
     private int plazo;
-    private double interes_anual;
-    private float monto_prestamo;
+    private double interesAnual;
+    private float montoPrestamo;
     private String tipoAmortizacion;
     private String moneda;
     private LinkedList<Double> resultadoCuota;
@@ -61,19 +61,19 @@ public class DTOAmortizacion {
     }
   
      public void SetInteres_anual(double  interes_anual){
-        this.interes_anual = interes_anual;
+        this.interesAnual = interes_anual;
     }
     
     public double GetInteres_anual(){
-     return interes_anual;
+     return interesAnual;
     }
     
      public void SetMonto_prestamo(float  monto_prestamo){
-        this.monto_prestamo = monto_prestamo;
+        this.montoPrestamo = monto_prestamo;
     }
     
     public float GetMonto_prestamo(){
-     return monto_prestamo;
+     return montoPrestamo;
     }
     
      public void SetTipoAmortizacion(String tipoAmortizacion){
