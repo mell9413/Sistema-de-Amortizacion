@@ -9,13 +9,13 @@ import java.util.GregorianCalendar;
 public class Principal {
     
     public static void main(String[] args) throws IOException {
-        Adaptador adaptador = Adaptador.getInstancia();
+    /*    Adaptador adaptador = Adaptador.getInstancia();
         adaptador.runBackEndChucky();      
         System.out.println(adaptador.getResultadoBackEndChuky());
         adaptador.killBackEndChucky();
         System.out.println(adaptador.getTipoCambio());
         System.out.println(adaptador.getResultadoBackEndChuky());
-//        Amortizacion alemana1 = new Aleman(1000000,5,15);
+//        Amortizacion alemana1 = new Aleman(1000000,5,15);*/
 //
 //        alemana1.calcularAmortizacion();
 //        alemana1.calcularDeuda();
@@ -52,7 +52,7 @@ public class Principal {
 //        System.out.println(americano1.getResultadoInteres());
 //        System.out.println(americano1.getResultadoAmortizaciones());
 //        
-//        VistaGUI vista = new VistaGUI();
-//        vista.setVisible(true);
+ //       VistaGUI vista = new VistaGUI();
+   //    vista.setVisible(true);
     }
 }

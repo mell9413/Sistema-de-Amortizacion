@@ -1,10 +1,12 @@
 package Modelo;
 
+import DTO.DTOAmortizacion;
+
 public class Americano extends Amortizacion {
 
-//    public Americano(DTOAmortizacion dtoAmortizacion){
-//        super(DTOAmortizacion dtoAmortizacion);
-//    }
+    public Americano(DTOAmortizacion dtoAmortizacion){
+        super(dtoAmortizacion);
+    }
     
     public Americano(float montoPrestamo,int plazo,double interesAnual){
         super(montoPrestamo,plazo,interesAnual);

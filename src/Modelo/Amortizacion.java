@@ -1,5 +1,6 @@
 package Modelo;
 
+import DTO.DTOAmortizacion;
 import java.util.*;
 
 public abstract class Amortizacion {
@@ -11,7 +12,7 @@ public abstract class Amortizacion {
     protected double montoCuota;
     protected double montoInteresPeriodo;
     protected double montoDeuda;
-//    protected Cliente cliente; OJOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO!!!!!!!!!!!!!!!!!!
+    protected Cliente cliente;
     protected LinkedList<Double> resultadoCuota  = new LinkedList<Double>();
     protected LinkedList<Double> resultadoAmortizaciones  = new LinkedList<Double>();
     protected LinkedList<Double> resultadoDeuda  = new LinkedList<Double>();
@@ -22,12 +23,12 @@ public abstract class Amortizacion {
     public abstract void calcularInteresPeriodo();
     public abstract void calcularCuota();
     
-//    public Amortizacion(DTOAmortizacion dtoAmortizacion) {
-//        this.montoPrestamo = dtoAmortizacion.getMontoPrestamo();
-//        this.plazo = dtoAmortizacion.getPlazo();
-//        this.interesAnual = dtoAmortizacion.getInteresAnual();
-//        this.cliente = dtoAmortizacion.getCliente();
-//    }
+    public Amortizacion(DTOAmortizacion dtoAmortizacion) {
+        this.montoPrestamo = dtoAmortizacion.GetMonto_prestamo();
+        this.plazo = dtoAmortizacion.GetPlazo();
+        this.interesAnual = dtoAmortizacion.GetInteres_anual();
+        this.cliente = dtoAmortizacion.getCliente();
+    }
     
     public Amortizacion(float montoPrestamo,int plazo,double interesAnual) {
         this.montoPrestamo = montoPrestamo;

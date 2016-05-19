@@ -38,11 +38,11 @@ public class VistaGUI extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
+        cNombre = new javax.swing.JTextField();
+        cPA = new javax.swing.JTextField();
+        cPlazo = new javax.swing.JTextField();
+        cSA = new javax.swing.JTextField();
+        cIA = new javax.swing.JTextField();
         jComboBox1 = new javax.swing.JComboBox();
         jComboBox2 = new javax.swing.JComboBox();
         jButton1 = new javax.swing.JButton();
@@ -65,33 +65,33 @@ public class VistaGUI extends javax.swing.JFrame {
 
         jLabel8.setText("Tipo de Amortizacion:");
 
-        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+        cNombre.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextField1KeyTyped(evt);
+                cNombreKeyTyped(evt);
             }
         });
 
-        jTextField2.addKeyListener(new java.awt.event.KeyAdapter() {
+        cPA.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextField2KeyTyped(evt);
+                cPAKeyTyped(evt);
             }
         });
 
-        jTextField3.addKeyListener(new java.awt.event.KeyAdapter() {
+        cPlazo.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextField3KeyTyped(evt);
+                cPlazoKeyTyped(evt);
             }
         });
 
-        jTextField4.addKeyListener(new java.awt.event.KeyAdapter() {
+        cSA.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextField4KeyTyped(evt);
+                cSAKeyTyped(evt);
             }
         });
 
-        jTextField6.addKeyListener(new java.awt.event.KeyAdapter() {
+        cIA.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextField6KeyTyped(evt);
+                cIAKeyTyped(evt);
             }
         });
 
@@ -100,6 +100,11 @@ public class VistaGUI extends javax.swing.JFrame {
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jButton1.setText("Aceptar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -119,11 +124,11 @@ public class VistaGUI extends javax.swing.JFrame {
                             .addComponent(jLabel8))
                         .addGap(92, 92, 92)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField1)
-                            .addComponent(jTextField2)
-                            .addComponent(jTextField4)
-                            .addComponent(jTextField3)
-                            .addComponent(jTextField6)
+                            .addComponent(cNombre)
+                            .addComponent(cPA)
+                            .addComponent(cSA)
+                            .addComponent(cPlazo)
+                            .addComponent(cIA)
                             .addComponent(jComboBox1, 0, 144, Short.MAX_VALUE)
                             .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
@@ -142,23 +147,23 @@ public class VistaGUI extends javax.swing.JFrame {
                 .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cPA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cSA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(12, 12, 12)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cPlazo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cIA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel7)
@@ -175,7 +180,7 @@ public class VistaGUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyTyped
+    private void cNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cNombreKeyTyped
         // TODO add your handling code here:
         
          int k = (int) evt.getKeyChar();//k = al valor de la tecla presionada   
@@ -186,9 +191,9 @@ public class VistaGUI extends javax.swing.JFrame {
 		        }
         
         
-    }//GEN-LAST:event_jTextField1KeyTyped
+    }//GEN-LAST:event_cNombreKeyTyped
 
-    private void jTextField2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2KeyTyped
+    private void cPAKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cPAKeyTyped
         // TODO add your handling code here:
          int k = (int) evt.getKeyChar();//k = al valor de la tecla presionada  
           if (k > 47 && k < 58) {//Si el caracter ingresado es una letra
@@ -196,9 +201,9 @@ public class VistaGUI extends javax.swing.JFrame {
 		             JOptionPane.showMessageDialog(null, "Por favor ingrese su primer apellido correctamentente", "Alerta",
 	                     JOptionPane.ERROR_MESSAGE);
 		        }
-    }//GEN-LAST:event_jTextField2KeyTyped
+    }//GEN-LAST:event_cPAKeyTyped
 
-    private void jTextField4KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField4KeyTyped
+    private void cSAKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cSAKeyTyped
         // TODO add your handling code here:
          int k = (int) evt.getKeyChar();//k = al valor de la tecla presionada  
           if (k > 47 && k < 58) {//Si el caracter ingresado es una letra
@@ -206,9 +211,9 @@ public class VistaGUI extends javax.swing.JFrame {
 		             JOptionPane.showMessageDialog(null, "Por favor ingrese su segundo apellido correctamentente", "Alerta",
 	                     JOptionPane.ERROR_MESSAGE);
 		        }
-    }//GEN-LAST:event_jTextField4KeyTyped
+    }//GEN-LAST:event_cSAKeyTyped
 
-    private void jTextField3KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField3KeyTyped
+    private void cPlazoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cPlazoKeyTyped
         // TODO add your handling code here:
          int k = (int) evt.getKeyChar();//k = al valor de la tecla presionada    
 		         if (k >= 97 && k <= 122 || k >= 65 && k <= 90) {//Si el caracter ingresado es una letra
@@ -220,9 +225,9 @@ public class VistaGUI extends javax.swing.JFrame {
         
         
         
-    }//GEN-LAST:event_jTextField3KeyTyped
+    }//GEN-LAST:event_cPlazoKeyTyped
 
-    private void jTextField6KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField6KeyTyped
+    private void cIAKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cIAKeyTyped
         // TODO add your handling code here:
         
          int k = (int) evt.getKeyChar();//k = al valor de la tecla presionada    
@@ -231,7 +236,12 @@ public class VistaGUI extends javax.swing.JFrame {
 		             JOptionPane.showMessageDialog(null, "Por favor digite números", " Alerta",
 		                     JOptionPane.ERROR_MESSAGE);
 		        }
-    }//GEN-LAST:event_jTextField6KeyTyped
+    }//GEN-LAST:event_cIAKeyTyped
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+//Falta para enviar al controlador
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -267,8 +277,19 @@ public class VistaGUI extends javax.swing.JFrame {
             }
         });
     }
+    
 
+
+   
+  
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField cIA;
+    private javax.swing.JTextField cNombre;
+    private javax.swing.JTextField cPA;
+    private javax.swing.JTextField cPlazo;
+    private javax.swing.JTextField cSA;
     private javax.swing.JButton jButton1;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JComboBox jComboBox2;
@@ -280,10 +301,5 @@ public class VistaGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField6;
     // End of variables declaration//GEN-END:variables
 }

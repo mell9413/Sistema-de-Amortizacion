@@ -1,6 +1,7 @@
 
 package DTO;
 
+import Modelo.Cliente;
 import java.util.LinkedList;
 
 public class DTOAmortizacion {
@@ -14,6 +15,7 @@ public class DTOAmortizacion {
     private LinkedList<Double> resultadoAmortizaciones;
     private LinkedList<Double> resultadoDeuda ;
     private LinkedList<Double> resultadoInteres ;
+    protected Cliente cliente;
     
     public DTOAmortizacion(){
           
@@ -90,6 +92,14 @@ public class DTOAmortizacion {
     
     public String GetMoneda(){
      return moneda;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
     
 }
