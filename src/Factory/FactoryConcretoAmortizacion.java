@@ -1,49 +1,26 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Factory;
 
 import DTO.DTOAmortizacion;
 import Modelo.*;
+import java.lang.reflect.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-
-
-/**
- *
- * @author Marianne
- */
 public class FactoryConcretoAmortizacion extends FactoryAmortizacion{
 
     @Override
     public Amortizacion crearAmortizacion(DTOAmortizacion dtoAmortizacion) {
-       
-        int tipoAmortizacion=0;
-        String valor  = dtoAmortizacion.GetTipoAmortizacion();
-        if(valor == "ALEMAN"){
-            tipoAmortizacion=1;
+        try {
+            Class amortizacion = Class.forName("Modelo." + dtoAmortizacion.GetTipoAmortizacion());
+            Constructor constructor;
+            Class[] dto = new Class[1];
+            dto[0]= DTOAmortizacion.class;
+            constructor = amortizacion.getConstructor(dto);            
+            Amortizacion tipoAmortizacion = (Amortizacion)constructor.newInstance(dtoAmortizacion);
+            return tipoAmortizacion;
+        } catch (Exception ex) {
+            Logger.getLogger(FactoryConcretoAmortizacion.class.getName()).log(Level.SEVERE, null, ex);
         }
-        if(valor == "FRANCES"){
-            tipoAmortizacion=2;
-        }
-        if(valor == "AMERICANO"){
-            tipoAmortizacion=3;
-        }
-        switch (tipoAmortizacion){
-            
-            case 1: 
-                Amortizacion amortizacionAlemana = new Aleman(dtoAmortizacion);
-                return amortizacionAlemana;    
-            case 2:
-                Amortizacion amortizacionFrancesa = new Frances(dtoAmortizacion);     
-                return amortizacionFrancesa;
-            case 3:
-                Amortizacion amortizacionAmericana = new Americano(dtoAmortizacion);
-                return amortizacionAmericana;
-        }
-        
         return null;
     }
-    
 }

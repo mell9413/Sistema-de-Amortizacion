@@ -22,18 +22,13 @@ public abstract class Amortizacion {
     public abstract void calcularAmortizacion();
     public abstract void calcularInteresPeriodo();
     public abstract void calcularCuota();
+    public abstract void obtenerResultados();
     
     public Amortizacion(DTOAmortizacion dtoAmortizacion) {
         this.montoPrestamo = dtoAmortizacion.GetMonto_prestamo();
         this.plazo = dtoAmortizacion.GetPlazo();
         this.interesAnual = dtoAmortizacion.GetInteres_anual();
         this.cliente = dtoAmortizacion.getCliente();
-    }
-    
-    public Amortizacion(float montoPrestamo,int plazo,double interesAnual) {
-        this.montoPrestamo = montoPrestamo;
-        this.plazo = plazo;
-        this.interesAnual = interesAnual;
     }
 
     public float getMontoPrestamo() {

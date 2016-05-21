@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<tiposAmortizacion>
+<row><Nombre>Americano</Nombre></row>
+<row><Nombre>Aleman</Nombre></row>
+<row><Nombre>Frances</Nombre></row>
+</tiposServicio>

@@ -8,10 +8,6 @@ public class Aleman extends Amortizacion {
         super(dtoAmortizacion);
     }
     
-    public Aleman(float montoPrestamo,int plazo,double interesAnual){
-        super(montoPrestamo,plazo,interesAnual);
-    }
-    
     @Override
     public void calcularAmortizacion() {
         for (int i = 0; i < plazo; i++ ){
@@ -46,5 +42,13 @@ public class Aleman extends Amortizacion {
                 resultadoCuota.add(montoCuota);
             }
         }
+    }
+
+    @Override
+    public void obtenerResultados() {
+        calcularAmortizacion();
+        calcularDeuda();
+        calcularInteresPeriodo();
+        calcularCuota();
     }
 }

@@ -7,10 +7,6 @@ public class Americano extends Amortizacion {
     public Americano(DTOAmortizacion dtoAmortizacion){
         super(dtoAmortizacion);
     }
-    
-    public Americano(float montoPrestamo,int plazo,double interesAnual){
-        super(montoPrestamo,plazo,interesAnual);
-    }
 
     @Override
     public void calcularDeuda() {
@@ -59,5 +55,13 @@ public class Americano extends Amortizacion {
                 resultadoCuota.add(montoCuota);
             }
         }
+    }
+
+    @Override
+    public void obtenerResultados() {
+        calcularInteresPeriodo();
+        calcularCuota();
+        calcularAmortizacion();
+        calcularDeuda();
     }
 }

@@ -8,10 +8,6 @@ public class Frances extends Amortizacion {
         super( dtoAmortizacion);
     }
     
-    public Frances(float montoPrestamo,int plazo,double interesAnual){
-        super(montoPrestamo,plazo,interesAnual);    	
-    }
-    
     @Override
     public void calcularInteresPeriodo() {
 	for (int i = 0; i< resultadoDeuda.size()-1 ; i++ ){
@@ -51,5 +47,13 @@ public class Frances extends Amortizacion {
             temporalPrestamo = montoDeuda;
         }
         resultadoDeuda.add(montoDeuda-montoDeuda);
+    }
+
+    @Override
+    public void obtenerResultados() {
+        calcularCuota();
+        calcularAmortizacion();
+        calcularDeuda();
+        calcularInteresPeriodo();
     }
 }
