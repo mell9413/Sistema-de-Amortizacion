@@ -3,20 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Bitacora;
+package Modelo.Bitacora;
 
 import DTO.DTOAmortizacion;
+import java.io.File;
 
 /**
  *
  * @author Marianne
  */
-public class BitacoraXML implements iEscritor{
+public class BitacoraCSV implements iEscritor{
     
     private static String nombreArchivo;
     
-    public BitacoraXML(){
-         nombreArchivo = "bitacoraXML.xml";
+    public BitacoraCSV(){
+         nombreArchivo = "bitacoraCSV.csv";
     }
 
     @Override
@@ -25,10 +26,22 @@ public class BitacoraXML implements iEscritor{
     }
 
     @Override
+    public boolean existeArchivo() {
+        String sfichero = "C:\\Users\\Marianne\\Downloads\\ya.csv.";
+        File fichero = new File(sfichero);
+        
+        if (fichero.exists()){
+            return true ;
+            
+        }
+        else{
+            return false;
+        }
+    }
+
+    @Override
     public void escribirMovimiento(DTOAmortizacion dtoAmortizacion) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
-    
     
 }

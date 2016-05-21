@@ -3,18 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Bitacora;
+package Modelo.Bitacora;
+
+
+import DTO.DTOAmortizacion;
 
 /**
  *
  * @author Marianne
  */
-public class BitacoraCSV {
+public interface iEscritor {
     
-    private static String nombreArchivo;
+    public void crearArchivo();
+     public boolean existeArchivo();
+    public void escribirMovimiento(DTOAmortizacion dtoAmortizacion);
     
-    public BitacoraCSV(){
-         nombreArchivo = "bitacoraCSV.csv";
-    }
+    
     
 }
