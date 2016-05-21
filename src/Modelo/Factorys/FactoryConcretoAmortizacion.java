@@ -1,5 +1,6 @@
-package Factory;
+package Modelo.Factorys;
 
+import Modelo.Factorys.FactoryAmortizacion;
 import DTO.DTOAmortizacion;
 import Modelo.*;
 import java.lang.reflect.*;
