@@ -2,8 +2,9 @@ package Modelo;
 
 import Modelo.*;
 import DTO.*;
+import Modelo.*;
 import Modelo.Adaptador.*;
-import Modelo.Factorys.*;
+import Modelo.Bitacora.*;
 import Vistas.VistaGUI;
 import java.io.IOException;
 import java.util.Calendar;
@@ -20,7 +21,7 @@ public class Principal {
         
 //        VistaGUI vista = new VistaGUI();
 //        vista.setVisible(true);
-        
+
 //        DTOCliente dtoCliente = new DTOCliente(); 
 //        
 //        Cliente clt = new Cliente(dtoCliente);
@@ -43,5 +44,13 @@ public class Principal {
 //        System.out.println(americano1.getResultadoCuota());
 //        System.out.println(americano1.getResultadoInteres());
 //        System.out.println(americano1.getResultadoAmortizaciones());
+
+        
+        Modelo.Bitacora.BitacoraXML bitacora = new BitacoraXML();
+        bitacora.existeArchivo();
+        bitacora.crearArchivo();
+        
+        Modelo.Bitacora.BitacoraCSV bitacora2 = new BitacoraCSV();
+        bitacora2.existeArchivo();
     }
 }
