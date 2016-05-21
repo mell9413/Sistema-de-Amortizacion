@@ -12,7 +12,7 @@ import java.io.File;
  *
  * @author Marianne
  */
-public class BitacoraCSV implements iEscritor{
+public class BitacoraCSV implements IEscritor{
     
     private static String nombreArchivo;
     

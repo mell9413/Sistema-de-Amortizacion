@@ -2,23 +2,26 @@ package Modelo;
 
 import Modelo.*;
 import DTO.*;
+import Data.Lector;
 import Modelo.*;
 import Modelo.Adaptador.*;
 import Modelo.Bitacora.*;
-import Vistas.VistaGUI;
+import Vistas.*;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import org.jdom2.JDOMException;
 
 
 public class Principal {
     
-    public static void main(String[] args) throws IOException {
-        IAdaptador adaptador = new ClientSocket();
-        System.out.println(adaptador.obtenerResultado());
-        IAdaptador adaptador2 = new WebServicesClientBCCR();
-        System.out.println(adaptador2.obtenerResultado());
-        
+    public static void main(String[] args) throws IOException, JDOMException {
+//        IAdaptador adaptador = new ClientSocket();
+//        System.out.println(adaptador.obtenerResultado());
+//        IAdaptador adaptador2 = new WebServicesClientBCCR();
+//        System.out.println(adaptador2.obtenerResultado());
+//        
 //        VistaGUI vista = new VistaGUI();
 //        vista.setVisible(true);
 
@@ -46,11 +49,15 @@ public class Principal {
 //        System.out.println(americano1.getResultadoAmortizaciones());
 
         
-        Modelo.Bitacora.BitacoraXML bitacora = new BitacoraXML();
-        bitacora.existeArchivo();
-        bitacora.crearArchivo();
+//        IEscritor bitacora = new BitacoraXML();
+//        bitacora.existeArchivo();
+//        bitacora.crearArchivo();
+//        
+//        IEscritor bitacora2 = new BitacoraCSV();
+//        bitacora2.existeArchivo();
         
-        Modelo.Bitacora.BitacoraCSV bitacora2 = new BitacoraCSV();
-        bitacora2.existeArchivo();
+        VistaConsola consola = new VistaConsola();
+        consola.run();
+        
     }
 }

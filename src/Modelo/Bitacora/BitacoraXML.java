@@ -31,7 +31,7 @@ import org.w3c.dom.Text;
  *
  * @author Marianne
  */
-public class BitacoraXML implements iEscritor{
+public class BitacoraXML implements IEscritor{
     
     private static String nombreArchivo;
     
