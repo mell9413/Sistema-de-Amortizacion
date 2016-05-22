@@ -6,6 +6,8 @@ import Data.Lector;
 import Modelo.*;
 import Modelo.Adaptador.*;
 import Modelo.Bitacora.*;
+import Modelo.Factorys.*;
+import Validaciones.Validar;
 import Vistas.*;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -58,6 +60,5 @@ public class Principal {
         
         VistaConsola consola = new VistaConsola();
         consola.run();
-        
     }
 }

@@ -25,6 +25,16 @@ public class Validar {
         }
     }
     
+    public static boolean validarDouble(String dato){
+        Pattern pat = Pattern.compile("([0-9]*|[.]|\\\\s)+");
+        Matcher mat = pat.matcher(dato);
+        if (mat.matches()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
     public static boolean validarRango(int seleccion, int largo){
         if(seleccion != 0 && seleccion <=largo){
             return true;
