@@ -23,9 +23,9 @@ public class Principal {
 //        System.out.println(adaptador.obtenerResultado());
 //        IAdaptador adaptador2 = new WebServicesClientBCCR();
 //        System.out.println(adaptador2.obtenerResultado());
-//        
-//        VistaGUI vista = new VistaGUI();
-//        vista.setVisible(true);
+        
+        VistaGUI vista = new VistaGUI();
+        vista.setVisible(true);
 
         DTOCliente dtoCliente = new DTOCliente(); 
         dtoCliente.setNombre("Melvin");

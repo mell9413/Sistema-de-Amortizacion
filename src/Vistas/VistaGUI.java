@@ -318,7 +318,6 @@ public class VistaGUI extends javax.swing.JFrame {
         enviarDatos();
         IControlador control = factorycontrol.crearControlador();
         control.consultarAmortizacion(dtoAmortizacion, dtoCliente);
-        System.out.println("hola" + dtoAmortizacion.GetMoneda());
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -356,7 +355,6 @@ public class VistaGUI extends javax.swing.JFrame {
     }
    
     private void enviarDatos(){
-    
         dtoCliente.setNombre(cNombre.getText());
         dtoCliente.setPrimerApellido(cPA.getText());
         dtoCliente.setSegundoApellido(cSA.getText());
@@ -364,9 +362,8 @@ public class VistaGUI extends javax.swing.JFrame {
         dtoAmortizacion.SetInteres_anual(Integer.parseInt(cIA.getText()));
         dtoAmortizacion.SetMonto_prestamo( Integer.parseInt(cMonto.getText()));
         dtoAmortizacion.SetPlazo(Integer.parseInt(cPlazo.getText()));
-        dtoAmortizacion.SetTipoAmortizacion(jComboBox1.getSelectedItem().toString());
-        dtoAmortizacion.SetMoneda(jComboBox2.getSelectedItem().toString());
-       
+        dtoAmortizacion.SetTipoAmortizacion(jComboBox2.getSelectedItem().toString());
+        dtoAmortizacion.SetMoneda(jComboBox1.getSelectedItem().toString());        
     }
     
     /*

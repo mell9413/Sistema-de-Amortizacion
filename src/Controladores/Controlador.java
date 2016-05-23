@@ -23,8 +23,8 @@ public class Controlador implements IControlador{
         this.factoryIEscritor.add(new FactoryConcretoBitacora().crearBitacora("BitacoraCSV"));
         this.factoryIEscritor.add(new FactoryConcretoBitacora().crearBitacora("BitacoraXML"));
         this.factoryAdaptador = new ArrayList();
-        this.factoryIEscritor.add(new FactoryConcretoBitacora().crearBitacora("WebServicesClientBCCR"));
-        this.factoryIEscritor.add(new FactoryConcretoBitacora().crearBitacora("ClientSocket"));
+        this.factoryAdaptador.add(new FactoryConcretoAdaptador().crearAdaptador("WebServicesClientBCCR"));
+        this.factoryAdaptador.add(new FactoryConcretoAdaptador().crearAdaptador("ClientSocket"));
     }
 
     @Override

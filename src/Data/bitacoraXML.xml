@@ -42,4 +42,16 @@
 <InteresPrestamo>15.0</InteresPrestamo>
 <MonedaPrestamo>Colones</MonedaPrestamo>
 </Movimiento>
+<Movimiento Cliente="dsdsd wwww www">
+<MontoPrestamo>11.0</MontoPrestamo>
+<PlazoPrestamo>1212</PlazoPrestamo>
+<InteresPrestamo>1.12121212E8</InteresPrestamo>
+<MonedaPrestamo>Colon</MonedaPrestamo>
+</Movimiento>
+<Movimiento Cliente="dsdsd wwww www">
+<MontoPrestamo>11.0</MontoPrestamo>
+<PlazoPrestamo>1212</PlazoPrestamo>
+<InteresPrestamo>1.12121212E8</InteresPrestamo>
+<MonedaPrestamo>Colon</MonedaPrestamo>
+</Movimiento>
 </Registro>
