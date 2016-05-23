@@ -54,16 +54,21 @@ public class Principal {
 //        System.out.println(americano1.getResultadoAmortizaciones());
 
         
-        IEscritor xml = new BitacoraXML();
-        xml.escribirMovimiento(dtoAmortizacion);
-        
-        IEscritor csv = new BitacoraCSV();
-        csv.escribirMovimiento(dtoAmortizacion);
+//        IEscritor xml = new BitacoraXML();
+//        xml.escribirMovimiento(dtoAmortizacion);
+//        
+//        IEscritor csv = new BitacoraCSV();
+//        csv.escribirMovimiento(dtoAmortizacion);
 //        
 //        IEscritor bitacora2 = new BitacoraCSV();
 //        bitacora2.existeArchivo();
 //        
 //        VistaConsola consola = new VistaConsola();
 //        consola.run();
+        
+        
+//        FactoryAdaptador factoryAdaptador = new FactoryConcretoAdaptador();
+//        IAdaptador adaptador = factoryAdaptador.crearAdaptador("WebServicesClientBCCR");
+        
     }
 }
