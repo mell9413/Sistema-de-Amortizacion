@@ -56,6 +56,7 @@ public class Controlador implements IControlador{
         dtoAmortizacion.setResultadoCuota(amortizacion.getResultadoCuota());
         dtoAmortizacion.setResultadoDeuda(amortizacion.getResultadoDeuda());
         dtoAmortizacion.setResultadoInteres(amortizacion.getResultadoInteres());
+        registrarBitacora(dtoAmortizacion);
     }
 
     @Override
