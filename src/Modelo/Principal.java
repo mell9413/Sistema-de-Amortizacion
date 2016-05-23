@@ -28,21 +28,23 @@ public class Principal {
 //        vista.setVisible(true);
 
         DTOCliente dtoCliente = new DTOCliente(); 
-//        
+        dtoCliente.setNombre("Melvin");
+        dtoCliente.setPrimerApellido("Brenes");
+        dtoCliente.setSegundoApellido("Gomez");
         Cliente clt = new Cliente(dtoCliente);
         
-//        
         DTOAmortizacion dtoAmortizacion = new DTOAmortizacion();
         dtoAmortizacion.SetMonto_prestamo(1000000);
         dtoAmortizacion.SetPlazo(5);
         dtoAmortizacion.SetInteres_anual(15);
         dtoAmortizacion.setCliente(clt);
+        dtoAmortizacion.SetMoneda("Colones");
         
         dtoAmortizacion.SetTipoAmortizacion("Americano");
                 
-        FactoryAmortizacion factoryAmortizacion = new FactoryConcretoAmortizacion();
-        Amortizacion americano1 = factoryAmortizacion.crearAmortizacion(dtoAmortizacion);
-        americano1.obtenerResultados();
+//        FactoryAmortizacion factoryAmortizacion = new FactoryConcretoAmortizacion();
+//        Amortizacion americano1 = factoryAmortizacion.crearAmortizacion(dtoAmortizacion);
+//        americano1.obtenerResultados();
 //		
 //        System.out.println(dtoAmortizacion.GetTipoAmortizacion());
 //        
@@ -52,14 +54,16 @@ public class Principal {
 //        System.out.println(americano1.getResultadoAmortizaciones());
 
         
-        IEscritor bitacora = new BitacoraCSV();
-        bitacora.crearArchivo();
-        bitacora.escribirMovimiento(dtoAmortizacion);
+        IEscritor xml = new BitacoraXML();
+        xml.escribirMovimiento(dtoAmortizacion);
+        
+        IEscritor csv = new BitacoraCSV();
+        csv.escribirMovimiento(dtoAmortizacion);
 //        
 //        IEscritor bitacora2 = new BitacoraCSV();
 //        bitacora2.existeArchivo();
-        
-     //   VistaConsola consola = new VistaConsola();
-     //   consola.run();
+//        
+//        VistaConsola consola = new VistaConsola();
+//        consola.run();
     }
 }
