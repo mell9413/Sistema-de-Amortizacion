@@ -27,21 +27,22 @@ public class Principal {
 //        VistaGUI vista = new VistaGUI();
 //        vista.setVisible(true);
 
-//        DTOCliente dtoCliente = new DTOCliente(); 
+        DTOCliente dtoCliente = new DTOCliente(); 
 //        
-//        Cliente clt = new Cliente(dtoCliente);
+        Cliente clt = new Cliente(dtoCliente);
+        
 //        
-//        DTOAmortizacion dtoAmortizacion = new DTOAmortizacion();
-//        dtoAmortizacion.SetMonto_prestamo(1000000);
-//        dtoAmortizacion.SetPlazo(5);
-//        dtoAmortizacion.SetInteres_anual(15);
-//        dtoAmortizacion.setCliente(clt);
-//        
-//        dtoAmortizacion.SetTipoAmortizacion("Americano");
-//                
-//        FactoryAmortizacion factoryAmortizacion = new FactoryConcretoAmortizacion();
-//        Amortizacion americano1 = factoryAmortizacion.crearAmortizacion(dtoAmortizacion);
-//        americano1.obtenerResultados();
+        DTOAmortizacion dtoAmortizacion = new DTOAmortizacion();
+        dtoAmortizacion.SetMonto_prestamo(1000000);
+        dtoAmortizacion.SetPlazo(5);
+        dtoAmortizacion.SetInteres_anual(15);
+        dtoAmortizacion.setCliente(clt);
+        
+        dtoAmortizacion.SetTipoAmortizacion("Americano");
+                
+        FactoryAmortizacion factoryAmortizacion = new FactoryConcretoAmortizacion();
+        Amortizacion americano1 = factoryAmortizacion.crearAmortizacion(dtoAmortizacion);
+        americano1.obtenerResultados();
 //		
 //        System.out.println(dtoAmortizacion.GetTipoAmortizacion());
 //        
@@ -51,14 +52,14 @@ public class Principal {
 //        System.out.println(americano1.getResultadoAmortizaciones());
 
         
-//        IEscritor bitacora = new BitacoraXML();
-//        bitacora.existeArchivo();
-//        bitacora.crearArchivo();
+        IEscritor bitacora = new BitacoraXML();
+        bitacora.crearArchivo();
+        bitacora.escribirMovimiento(dtoAmortizacion);
 //        
 //        IEscritor bitacora2 = new BitacoraCSV();
 //        bitacora2.existeArchivo();
         
-        VistaConsola consola = new VistaConsola();
-        consola.run();
+     //   VistaConsola consola = new VistaConsola();
+     //   consola.run();
     }
 }
