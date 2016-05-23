@@ -48,7 +48,14 @@ public class Controlador implements IControlador{
 
     @Override
     public void consultarAmortizacion(DTOAmortizacion dtoAmortizacion, DTOCliente dtoCliente) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Amortizacion amortizacion = crearAmortizacion(dtoAmortizacion);
+        Cliente cliente = crearCliente(dtoCliente);
+        dtoAmortizacion.setCliente(cliente);
+        amortizacion.obtenerResultados();
+        dtoAmortizacion.setResultadoAmortizaciones(amortizacion.getResultadoAmortizaciones());
+        dtoAmortizacion.setResultadoCuota(amortizacion.getResultadoCuota());
+        dtoAmortizacion.setResultadoDeuda(amortizacion.getResultadoDeuda());
+        dtoAmortizacion.setResultadoInteres(amortizacion.getResultadoInteres());
     }
 
     @Override

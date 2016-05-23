@@ -12,6 +12,7 @@ public abstract class Amortizacion {
     protected double montoCuota;
     protected double montoInteresPeriodo;
     protected double montoDeuda;
+    protected String moneda;
     protected Cliente cliente;
     protected LinkedList<Double> resultadoCuota  = new LinkedList<Double>();
     protected LinkedList<Double> resultadoAmortizaciones  = new LinkedList<Double>();
@@ -74,6 +75,13 @@ public abstract class Amortizacion {
     public LinkedList<Double> getResultadoInteres() {
         return resultadoInteres;
     }
-    
+
+    public String getMoneda() {
+        return moneda;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
     
 }
