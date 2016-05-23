@@ -11,16 +11,17 @@ public class VistaConsola {
     
     Scanner entrada = new Scanner (System.in);
     String seleccion="";
-    public String nombre;
-    public String primerApellido;
-    public String segundoApellido;
-    public int tipoAmortizacion;
-    public String nombreAmortizacion;
-    public int tipoMoneda;
-    public String nombreMoneda;
-    public double montoPrestamo;
-    public int plazo;
-    public float interes;
+    private String nombre;
+    private String primerApellido;
+    private String segundoApellido;
+    private int tipoAmortizacion;
+    private String nombreAmortizacion;
+    private int tipoMoneda;
+    private String nombreMoneda;
+    private double montoPrestamo;
+    private int plazo;
+    private float interes;
+    
     
     public void ingresarNombre(){
         System.out.println(">>> Por favor ingrese unicamente su Nombre:");
@@ -145,6 +146,7 @@ public class VistaConsola {
             ingresarMonto();
             ingresarPlazo();
             ingresarInteres();
+            
         //}
     }
 }

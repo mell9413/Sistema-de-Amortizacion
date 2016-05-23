@@ -71,7 +71,7 @@ public class BitacoraXML implements IEscritor{
                 Element interesPrestamo = doc.createElement("InteresPrestamo");
                 interesPrestamo.setTextContent(String.valueOf(dtoAmortizacion.GetInteres_anual()));
                 movimiento.appendChild(interesPrestamo);
-//                
+                
                 Element moneda = doc.createElement("MonedaPrestamo");
                 moneda.setTextContent(String.valueOf(dtoAmortizacion.GetMoneda()));
                 movimiento.appendChild(moneda);
