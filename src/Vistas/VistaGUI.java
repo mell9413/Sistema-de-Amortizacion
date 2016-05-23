@@ -5,8 +5,14 @@
  */
 package Vistas;
 
+import Data.Lector;
 import java.awt.event.KeyEvent;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import org.jdom2.JDOMException;
 
 /**
  *
@@ -17,8 +23,10 @@ public class VistaGUI extends javax.swing.JFrame {
     /**
      * Creates new form VistaGUI
      */
-    public VistaGUI() {
+    public VistaGUI() throws IOException, JDOMException {
         initComponents();
+        SetMonedas();
+        SetAmortizacion();
     }
 
     /**
@@ -95,9 +103,17 @@ public class VistaGUI extends javax.swing.JFrame {
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox2ActionPerformed(evt);
+            }
+        });
 
         jButton1.setText("Aceptar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -243,6 +259,33 @@ public class VistaGUI extends javax.swing.JFrame {
 //Falta para enviar al controlador
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox2ActionPerformed
+
+    
+    private void SetMonedas() throws IOException, JDOMException{
+    ArrayList monedas = Lector.obtenerMonedas();
+    String[] array = new String[monedas.size()];
+    for(int i = 0; i < array.length; i++) {
+       jComboBox1.addItem(monedas.get(i).toString());
+    }
+    }
+   
+     private void SetAmortizacion() throws IOException, JDOMException{
+    ArrayList amortizacion = Lector.obtenerTiposAmortizaciones();
+    String[] array = new String[amortizacion.size()];
+    for(int i = 0; i < array.length; i++) {
+       jComboBox2.addItem(amortizacion.get(i).toString());
+    }
+    }
+   
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -273,7 +316,13 @@ public class VistaGUI extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VistaGUI().setVisible(true);
+                try {
+                    new VistaGUI().setVisible(true);
+                } catch (IOException ex) {
+                    Logger.getLogger(VistaGUI.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (JDOMException ex) {
+                    Logger.getLogger(VistaGUI.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
