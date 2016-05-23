@@ -11,11 +11,7 @@ import javax.xml.transform.stream.*;
 import org.w3c.dom.*;
 
 public class BitacoraXML implements IEscritor{
-    private static String nombreArchivo;
-    
-    public BitacoraXML(){
-         nombreArchivo = "bitacoraXML.xml";
-    }
+    private static String nombreArchivo="bitacoraXML.xml";
 
     @Override
     public void crearArchivo() {         

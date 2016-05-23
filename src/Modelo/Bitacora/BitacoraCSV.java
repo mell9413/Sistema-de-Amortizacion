@@ -19,11 +19,8 @@ import java.util.logging.Logger;
  */
 public class BitacoraCSV implements IEscritor{
     
-    private static String nombreArchivo;
+    private static String nombreArchivo = "bitacoraCSV.csv";
     
-    public BitacoraCSV(){
-         nombreArchivo = "bitacoraCSV.csv";
-    }
 
     @Override
     public void crearArchivo() {
