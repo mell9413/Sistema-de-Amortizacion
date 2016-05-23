@@ -52,7 +52,7 @@ public class Principal {
 //        System.out.println(americano1.getResultadoAmortizaciones());
 
         
-        IEscritor bitacora = new BitacoraXML();
+        IEscritor bitacora = new BitacoraCSV();
         bitacora.crearArchivo();
         bitacora.escribirMovimiento(dtoAmortizacion);
 //        

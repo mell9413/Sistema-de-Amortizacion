@@ -7,6 +7,10 @@ package Modelo.Bitacora;
 
 import DTO.DTOAmortizacion;
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -22,7 +26,19 @@ public class BitacoraCSV implements IEscritor{
 
     @Override
     public void crearArchivo() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+           String nombreArchivo2 = "C:\\Users\\Marianne\\Downloads\\ya.csv.";
+        if (existeArchivo() == false)
+         
+            try {
+             FileWriter file = new FileWriter(nombreArchivo2);   
+            //FileWriter file = new FileWriter(BitacoraCSV.nombreArchivo);
+            file.write('\ufeff');
+            file.append("Sistema de amortizacion \n");
+            file.close();
+        } catch (IOException ex) {
+            
+        }
     }
 
     @Override
@@ -35,13 +51,34 @@ public class BitacoraCSV implements IEscritor{
             
         }
         else{
+            System.out.println("soy yo");
             return false;
         }
     }
 
     @Override
     public void escribirMovimiento(DTOAmortizacion dtoAmortizacion) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+            String nombreArchivo2 = "C:\\Users\\Marianne\\Downloads\\ya.csv.";
+
+        if (existeArchivo()){
+        try {
+               FileWriter file = new FileWriter(nombreArchivo2);
+            //FileWriter file = new FileWriter(BitacoraCSV.nombreArchivo,true);
+             file.append("Bitacora de transacciones \n");
+             file.append("Tipo de amortizacion:  " + dtoAmortizacion.GetTipoAmortizacion() + "\n");
+             file.append("Nombre cliente:  " + dtoAmortizacion.getCliente()+ "\n");
+             file.append("Monto prestamo:  " + String.valueOf(dtoAmortizacion.GetMonto_prestamo())+ "\n");
+             file.append("Plazo prestamo:  " + String.valueOf(dtoAmortizacion.GetPlazo())+ "\n");
+             file.append("Interes anual:  " + String.valueOf(dtoAmortizacion.GetInteres_anual())+ "\n");
+             file.append("Moneda:  " + dtoAmortizacion.GetMoneda()+ "\n");
+             file.flush();
+             file.close();
+             
+             
+        } catch (IOException ex) {
+         
+        }
+       
+    }}
     
 }
