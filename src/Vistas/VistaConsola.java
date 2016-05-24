@@ -1,13 +1,21 @@
 package Vistas;
 
+import Controladores.*;
+import DTO.*;
 import Data.Lector;
+import Modelo.Factorys.*;
 import Validaciones.Validar;
 import java.io.IOException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Scanner;
 import org.jdom2.JDOMException;
 
 public class VistaConsola {
+    
+    private DTOCliente dtoCliente = new DTOCliente();
+    private DTOAmortizacion dtoAmortizacion = new DTOAmortizacion();
+    private  FactoryControlador factorycontrol = new FactoryConcretoControlador();
     
     Scanner entrada = new Scanner (System.in);
     String seleccion="";
@@ -18,12 +26,12 @@ public class VistaConsola {
     private String nombreAmortizacion;
     private int tipoMoneda;
     private String nombreMoneda;
-    private double montoPrestamo;
+    private float montoPrestamo;
     private int plazo;
     private float interes;
     
     
-    public void ingresarNombre(){
+    private void ingresarNombre(){
         System.out.println(">>> Por favor ingrese unicamente su Nombre:");
         nombre = entrada.nextLine();
         if (Validar.validarLetras(nombre)){
@@ -34,7 +42,7 @@ public class VistaConsola {
         }
     }
     
-    public void ingresarPrimerApellido(){
+    private void ingresarPrimerApellido(){
         System.out.println(">>> Por favor ingrese unicamente su Primer Apellido:");
         primerApellido = entrada.nextLine();
         if (Validar.validarLetras(primerApellido)){
@@ -45,7 +53,7 @@ public class VistaConsola {
         }
     }
     
-    public void ingresarSegundoApellido(){
+    private void ingresarSegundoApellido(){
         System.out.println(">>> Por favor ingrese unicamente su Segundo Apellido:");
         segundoApellido = entrada.nextLine();
         if (!Validar.validarLetras(segundoApellido)){
@@ -53,7 +61,7 @@ public class VistaConsola {
         }
     }
     
-    public void ingresarServicio() throws IOException, JDOMException{
+    private void ingresarServicio() throws IOException, JDOMException{
         System.out.println(">>> Por favor ingrese el numero correspondiente al Tipo de Amortización deseado:");
         ArrayList tiposAmortizacion = Lector.obtenerTiposAmortizaciones();
         int contador=0;
@@ -77,7 +85,7 @@ public class VistaConsola {
         }
     }
     
-    public void ingresarMoneda() throws IOException, JDOMException{
+    private void ingresarMoneda() throws IOException, JDOMException{
         System.out.println(">>> Por favor ingrese el numero correspondiente al Tipo de Moneda:");
         ArrayList tiposAmortizacion = Lector.obtenerMonedas();
         int contador=0;
@@ -101,11 +109,11 @@ public class VistaConsola {
         }
     }
     
-    public void ingresarMonto(){
+    private void ingresarMonto(){
         System.out.println(">>> Por favor ingrese el Monto del Préstamo otorgado:");
         seleccion = entrada.nextLine();
         if(Validar.validarDouble(seleccion)){
-            montoPrestamo = Double.parseDouble(seleccion);
+            montoPrestamo = (float) Double.parseDouble(seleccion);
         }
         else{
             System.out.println(">>> Ingrese unicamente números, intente de nuevo");
@@ -113,7 +121,7 @@ public class VistaConsola {
         }
     }
     
-    public void ingresarPlazo(){
+    private void ingresarPlazo(){
         System.out.println(">>> Por favor ingrese el Plazo del Préstamo en años:");
         seleccion = entrada.nextLine();
         if(Validar.validarNumeros(seleccion)){
@@ -125,7 +133,7 @@ public class VistaConsola {
         }
     }
     
-    public void ingresarInteres(){
+    private void ingresarInteres(){
         System.out.println(">>> Por favor ingrese el Interés Anual:");
         seleccion = entrada.nextLine();
         if(Validar.validarDouble(seleccion)){
@@ -137,6 +145,38 @@ public class VistaConsola {
         }
     }
     
+    private void enviarDatos(){
+        dtoCliente.setNombre(nombre);
+        dtoCliente.setPrimerApellido(primerApellido);
+        dtoCliente.setSegundoApellido(segundoApellido);
+        
+        dtoAmortizacion.SetInteres_anual(interes);
+        dtoAmortizacion.SetMonto_prestamo(montoPrestamo);
+        dtoAmortizacion.SetPlazo(plazo);
+        dtoAmortizacion.SetTipoAmortizacion(nombreAmortizacion);
+        dtoAmortizacion.SetMoneda(nombreMoneda);        
+    }
+    
+    private void mostrarResultados(){
+        IControlador control = factorycontrol.crearControlador();
+        control.consultarAmortizacion(dtoAmortizacion, dtoCliente);
+        System.out.println("***** ***** ***** ***** *****");
+        System.out.println("Tipo de cambio compra BCCR: "+control.obtenerTipoCambio());
+        System.out.println("Datos de la consulta");
+        System.out.println("Cliente: "+dtoAmortizacion.getCliente().getNombre()+" "+dtoAmortizacion.getCliente().getPrimerApellido()+" "+dtoAmortizacion.getCliente().getSegundoApellido());
+        System.out.println("Monto del préstamo otorgado: "+dtoAmortizacion.GetMonto_prestamo()+" "+dtoAmortizacion.GetMoneda());
+        System.out.println("Plazo del préstamo: "+dtoAmortizacion.GetPlazo()+" años");
+        System.out.println("Interés anual: "+dtoAmortizacion.GetInteres_anual()+" %");
+        System.out.println("Sistema de amortización: "+dtoAmortizacion.GetTipoAmortizacion()+"\n");
+        System.out.println("Tabla de Amortización\n");
+        System.out.println("Período\t\tDeuda inicial\t\tIntereses\t\tAmortización\t\tCuota\n");
+        DecimalFormat decimales = new DecimalFormat("0.00");
+        for (int i = 0; i < dtoAmortizacion.GetPlazo(); i++){
+            System.out.println((i+1)+"\t\t"+decimales.format(dtoAmortizacion.getResultadoDeuda().get(i))+"\t\t"+decimales.format(dtoAmortizacion.getResultadoInteres().get(i))+"\t\t"+decimales.format(dtoAmortizacion.getResultadoCuota().get(i))+"\t\t"+decimales.format(dtoAmortizacion.getResultadoAmortizaciones().get(i))); 
+        }
+        System.out.println(control.obtenerFechaBackEnd());
+    }
+    
     public void run() throws IOException, JDOMException{
         //while(true){
             System.out.println("***** Sistema de Amortización *****");
@@ -146,7 +186,8 @@ public class VistaConsola {
             ingresarMonto();
             ingresarPlazo();
             ingresarInteres();
-            
+            enviarDatos();
+            mostrarResultados();
         //}
     }
 }
