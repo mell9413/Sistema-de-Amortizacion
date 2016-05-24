@@ -10,35 +10,37 @@ public class Frances extends Amortizacion {
     
     @Override
     public void calcularInteresPeriodo() {
-	for (int i = 0; i< resultadoDeuda.size()-1 ; i++ ){
+        double totalInteres=0;
+	for (int i = 0; i< resultadoDeuda.size() ; i++ ){
             montoInteresPeriodo =  resultadoDeuda.get(i) * (interesAnual * 0.01);
-            totalInteres = montoInteresPeriodo + totalInteres;
+            totalInteres = montoInteresPeriodo+ totalInteres;
             resultadoInteres.add(montoInteresPeriodo);
-           
         }
-        resultadoInteres.addLast(totalInteres);
+        resultadoInteres.add(totalInteres);
     }
     
     @Override
     public void calcularCuota() {
-      for (int i = 0; i < plazo ; i++){
-        montoCuota =+ (1 + (interesAnual * 0.01)) ;
-        montoCuota =+ Math.pow(montoCuota, plazo);
-        montoCuota =+  (montoPrestamo * (interesAnual * 0.01)) / (1 - (1 / montoCuota));
-        totalCuota =+ montoCuota + totalCuota;
-        resultadoCuota.add(montoCuota);
-      }
-      resultadoCuota.addLast(totalCuota);
+        double totalCuota = 0;
+        for (int i = 0; i < plazo ; i++){
+          montoCuota =+ (1 + (interesAnual * 0.01)) ;
+          montoCuota =+ Math.pow(montoCuota, plazo);
+          montoCuota =+  (montoPrestamo * (interesAnual * 0.01)) / (1 - (1 / montoCuota));
+          totalCuota += montoCuota;
+          resultadoCuota.add(montoCuota);
+        }
+        resultadoCuota.addLast(totalCuota);
     }
     
     @Override
     public void calcularAmortizacion() {
         int temporalPlazo = plazo;
+        double totalAmortizacion=0;
          for (int i =0; i < temporalPlazo ; temporalPlazo--){ 
             montoAmortizacion =+ (1 + (interesAnual * 0.01));
             montoAmortizacion = Math.pow(montoAmortizacion, temporalPlazo);
             montoAmortizacion = montoCuota / montoAmortizacion + 1 - (i)  ;
-            totalAmortizacion =+ montoAmortizacion + totalAmortizacion;
+            totalAmortizacion += montoAmortizacion;
             resultadoAmortizaciones.add(montoAmortizacion);	
         }
           resultadoAmortizaciones.addLast(totalAmortizacion);	

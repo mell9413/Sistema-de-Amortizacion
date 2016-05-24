@@ -10,9 +10,10 @@ public class Aleman extends Amortizacion {
     
     @Override
     public void calcularAmortizacion() {
+        double totalAmortizacion = 0;
         for (int i = 0; i < plazo; i++ ){
             montoAmortizacion =+ (montoPrestamo / plazo);
-            totalAmortizacion =+ montoAmortizacion + totalAmortizacion;
+            totalAmortizacion += montoAmortizacion;
             resultadoAmortizaciones.add(montoAmortizacion);
         }
         resultadoAmortizaciones.addLast(totalAmortizacion);
@@ -30,9 +31,10 @@ public class Aleman extends Amortizacion {
     
     @Override
     public void calcularInteresPeriodo() {
+        double totalInteres = 0;
     	for( int i = 0; i < resultadoDeuda.size()-1 ; i++){
             montoInteresPeriodo =+ resultadoDeuda.get(i) * (interesAnual * 0.01);
-            totalInteres =+ montoInteresPeriodo + totalInteres;
+            totalInteres += montoInteresPeriodo;
             resultadoInteres.add(montoInteresPeriodo);
     	}
         resultadoInteres.addLast(totalInteres);
@@ -40,14 +42,13 @@ public class Aleman extends Amortizacion {
     
     @Override
     public void calcularCuota() {
-        for (int i = 0; i < resultadoInteres.size(); i++){
-            if (resultadoInteres.get(i) > 0){ //Aqui hay que ver esta validacion
+        double totalCuota = 0;
+        for (int i = 0; i < resultadoInteres.size()-1; i++){
                 montoCuota =+ resultadoInteres.get(i) + montoAmortizacion;
-                totalCuota =+ montoCuota + totalCuota;
+                totalCuota += montoCuota;
                 resultadoCuota.add(montoCuota);
-            }
-            resultadoCuota.addLast(totalCuota);
         }
+        resultadoCuota.addLast(totalCuota);
     }
 
     

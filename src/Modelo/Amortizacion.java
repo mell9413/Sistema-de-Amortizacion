@@ -18,9 +18,6 @@ public abstract class Amortizacion {
     protected LinkedList<Double> resultadoAmortizaciones  = new LinkedList<Double>();
     protected LinkedList<Double> resultadoDeuda  = new LinkedList<Double>();
     protected LinkedList<Double> resultadoInteres  = new LinkedList<Double>();
-    protected double totalCuota;
-    protected double totalAmortizacion;
-    protected double totalInteres;
 
     public abstract void calcularDeuda();
     public abstract void calcularAmortizacion();

@@ -67,7 +67,7 @@ public class Controlador implements IControlador{
 
     @Override
     public String obtenerFechaBackEnd() {
-        IAdaptador backEnd= (IAdaptador) factoryAdaptador.get(0);
+        IAdaptador backEnd= (IAdaptador) factoryAdaptador.get(1);
         return backEnd.obtenerResultado();
     }
     

@@ -69,20 +69,27 @@ public class VistaConsola {
             System.out.println(">>> " + ((contador++)+1) + ") ---> " + tipo);
         }
         seleccion = entrada.nextLine();
-        if(Validar.validarNumeros(seleccion)){
-            tipoAmortizacion = Integer.parseInt(seleccion);
-            if (Validar.validarRango(tipoAmortizacion,contador)){
-                nombreAmortizacion = tiposAmortizacion.get(tipoAmortizacion-1).toString();
+        try{
+            if(Validar.validarNumeros(seleccion)){
+                tipoAmortizacion = Integer.parseInt(seleccion);
+                if (Validar.validarRango(tipoAmortizacion,contador)){
+                    nombreAmortizacion = tiposAmortizacion.get(tipoAmortizacion-1).toString();
+                }
+                else{
+                    System.out.println(">>> El numero ingresado esta fuera del rango de los tipos de Amortizacion disponibles, intente de nuevo");
+                    ingresarServicio();
+                }
             }
             else{
-                System.out.println(">>> El numero ingresado esta fuera del rango de los tipos de Amortizacion disponibles, intente de nuevo");
+                System.out.println(">>> Ingrese unicamente números, intente de nuevo");
                 ingresarServicio();
             }
         }
-        else{
+        catch(Exception ex){
             System.out.println(">>> Ingrese unicamente números, intente de nuevo");
             ingresarServicio();
         }
+        
     }
     
     private void ingresarMoneda() throws IOException, JDOMException{
@@ -93,56 +100,84 @@ public class VistaConsola {
             System.out.println(">>> " + ((contador++)+1) + ") ---> " + tipo);
         }
         seleccion = entrada.nextLine();
-        if(Validar.validarNumeros(seleccion)){
-            tipoMoneda = Integer.parseInt(seleccion);
-            if (Validar.validarRango(tipoMoneda,contador)){
-                nombreMoneda = tiposAmortizacion.get(tipoMoneda-1).toString();
+        try{
+            if(Validar.validarNumeros(seleccion)){
+                tipoMoneda = Integer.parseInt(seleccion);
+                if (Validar.validarRango(tipoMoneda,contador)){
+                    nombreMoneda = tiposAmortizacion.get(tipoMoneda-1).toString();
+                }
+                else{
+                    System.out.println(">>> El numero ingresado esta fuera del rango de los tipos de Monedas disponibles, intente de nuevo");
+                    ingresarMoneda();
+                }
             }
             else{
-                System.out.println(">>> El numero ingresado esta fuera del rango de los tipos de Monedas disponibles, intente de nuevo");
+                System.out.println(">>> Ingrese unicamente números, intente de nuevo");
                 ingresarMoneda();
             }
         }
-        else{
+        catch(Exception ex){
             System.out.println(">>> Ingrese unicamente números, intente de nuevo");
             ingresarMoneda();
         }
+
     }
     
     private void ingresarMonto(){
         System.out.println(">>> Por favor ingrese el Monto del Préstamo otorgado:");
         seleccion = entrada.nextLine();
-        if(Validar.validarDouble(seleccion)){
-            montoPrestamo = (float) Double.parseDouble(seleccion);
+        try{
+            if(Validar.validarDouble(seleccion)){
+                montoPrestamo = (float) Double.parseDouble(seleccion);
+            }
+            else{
+                System.out.println(">>> Ingrese unicamente números, intente de nuevo");
+                ingresarMonto();
+            }
         }
-        else{
+        catch(Exception ex){
             System.out.println(">>> Ingrese unicamente números, intente de nuevo");
             ingresarMonto();
         }
+
     }
     
     private void ingresarPlazo(){
         System.out.println(">>> Por favor ingrese el Plazo del Préstamo en años:");
         seleccion = entrada.nextLine();
-        if(Validar.validarNumeros(seleccion)){
-            plazo = Integer.parseInt(seleccion);
+        try{
+            if(Validar.validarNumeros(seleccion)){
+                plazo = Integer.parseInt(seleccion);
+            }
+            else{
+                System.out.println(">>> Ingrese unicamente números enteros, intente de nuevo");
+                ingresarPlazo();
+            }
         }
-        else{
+        catch(Exception ex){
             System.out.println(">>> Ingrese unicamente números enteros, intente de nuevo");
             ingresarPlazo();
         }
+        
     }
     
     private void ingresarInteres(){
         System.out.println(">>> Por favor ingrese el Interés Anual:");
         seleccion = entrada.nextLine();
-        if(Validar.validarDouble(seleccion)){
-            interes = Float.parseFloat(seleccion);
+        try{
+            if(Validar.validarDouble(seleccion)){
+                interes = Float.parseFloat(seleccion);
+            }
+            else{
+                System.out.println(">>> Ingrese unicamente números, intente de nuevo");
+                ingresarInteres();
+            }
         }
-        else{
+        catch(Exception ex){
             System.out.println(">>> Ingrese unicamente números, intente de nuevo");
             ingresarInteres();
         }
+        
     }
     
     private void enviarDatos(){
@@ -171,14 +206,15 @@ public class VistaConsola {
         System.out.println("Tabla de Amortización\n");
         System.out.println("Período\t\tDeuda inicial\t\tIntereses\t\tAmortización\t\tCuota\n");
         DecimalFormat decimales = new DecimalFormat("0.00");
-        for (int i = 0; i < dtoAmortizacion.GetPlazo(); i++){
-            System.out.println((i+1)+"\t\t"+decimales.format(dtoAmortizacion.getResultadoDeuda().get(i))+"\t\t"+decimales.format(dtoAmortizacion.getResultadoInteres().get(i))+"\t\t"+decimales.format(dtoAmortizacion.getResultadoCuota().get(i))+"\t\t"+decimales.format(dtoAmortizacion.getResultadoAmortizaciones().get(i))); 
+        for (int i=0; i < dtoAmortizacion.GetPlazo(); i++){
+            System.out.println((i+1)+"\t\t"+decimales.format(dtoAmortizacion.getResultadoDeuda().get(i))+"\t\t"+decimales.format(dtoAmortizacion.getResultadoInteres().get(i))+"\t\t"+decimales.format(dtoAmortizacion.getResultadoAmortizaciones().get(i))+"\t\t"+decimales.format(dtoAmortizacion.getResultadoCuota().get(i))); 
         }
+        System.out.println("Total\t\t\t\t\t"+decimales.format(dtoAmortizacion.getResultadoInteres().getLast())+"\t\t"+decimales.format(dtoAmortizacion.getResultadoAmortizaciones().getLast())+"\t\t"+decimales.format(dtoAmortizacion.getResultadoCuota().getLast()));
         System.out.println(control.obtenerFechaBackEnd());
     }
     
     public void run() throws IOException, JDOMException{
-        //while(true){
+        while(true){
             System.out.println("***** Sistema de Amortización *****");
             ingresarNombre();
             ingresarServicio();
@@ -188,6 +224,7 @@ public class VistaConsola {
             ingresarInteres();
             enviarDatos();
             mostrarResultados();
-        //}
+            entrada.nextLine();
+        }
     }
 }
