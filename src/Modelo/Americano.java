@@ -27,6 +27,7 @@ public class Americano extends Amortizacion {
     	for (int i = 1; i <= plazo; i++){
             if (i == plazo){
                 montoAmortizacion =+ montoPrestamo;
+                totalAmortizacion =+ totalAmortizacion + montoAmortizacion;
                 resultadoAmortizaciones.add(montoAmortizacion);
             }
             else{
@@ -40,6 +41,7 @@ public class Americano extends Amortizacion {
     public void calcularInteresPeriodo() {
         for (int i = 0; i < plazo; i++){
             montoInteresPeriodo =+ montoPrestamo * (interesAnual * 0.01);
+            totalInteres =+ montoInteresPeriodo + totalInteres;
             resultadoInteres.add(montoInteresPeriodo);
     	}
     }
@@ -49,9 +51,11 @@ public class Americano extends Amortizacion {
         for (int i = 1; i <= plazo; i++){
             if (i == plazo){
                 montoCuota =+ montoPrestamo + (montoPrestamo * (interesAnual * 0.01));
+                totalCuota =+ montoCuota + totalCuota;
                 resultadoCuota.add(montoCuota);
             } else{
                 montoCuota =+ (montoPrestamo * (interesAnual * 0.01));
+                totalCuota =+ montoCuota + totalCuota;
                 resultadoCuota.add(montoCuota);
             }
         }
@@ -64,4 +68,5 @@ public class Americano extends Amortizacion {
         calcularAmortizacion();
         calcularDeuda();
     }
+
 }

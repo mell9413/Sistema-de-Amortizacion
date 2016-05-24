@@ -12,6 +12,7 @@ public class Frances extends Amortizacion {
     public void calcularInteresPeriodo() {
 	for (int i = 0; i< resultadoDeuda.size()-1 ; i++ ){
             montoInteresPeriodo =  resultadoDeuda.get(i) * (interesAnual * 0.01);
+            totalInteres = montoInteresPeriodo + totalInteres;
             resultadoInteres.add(montoInteresPeriodo);
         }
     }
@@ -22,6 +23,7 @@ public class Frances extends Amortizacion {
         montoCuota =+ (1 + (interesAnual * 0.01)) ;
         montoCuota =+ Math.pow(montoCuota, plazo);
         montoCuota =+  (montoPrestamo * (interesAnual * 0.01)) / (1 - (1 / montoCuota));
+        totalCuota =+ montoCuota + totalCuota;
         resultadoCuota.add(montoCuota);
       }
     }
@@ -33,6 +35,7 @@ public class Frances extends Amortizacion {
             montoAmortizacion =+ (1 + (interesAnual * 0.01));
             montoAmortizacion = Math.pow(montoAmortizacion, temporalPlazo);
             montoAmortizacion = montoCuota / montoAmortizacion + 1 - (i)  ;
+            totalAmortizacion =+ montoAmortizacion + totalAmortizacion;
             resultadoAmortizaciones.add(montoAmortizacion);	
         }
     }
@@ -56,4 +59,6 @@ public class Frances extends Amortizacion {
         calcularDeuda();
         calcularInteresPeriodo();
     }
+
+
 }

@@ -342,4 +342,70 @@
 <InteresPrestamo>2.0</InteresPrestamo>
 <MonedaPrestamo>Colon</MonedaPrestamo>
 </Movimiento>
+<Movimiento Cliente="marianne dada dada">
+<MontoPrestamo>1000000.0</MontoPrestamo>
+<PlazoPrestamo>5</PlazoPrestamo>
+<InteresPrestamo>15.0</InteresPrestamo>
+<MonedaPrestamo>Colon</MonedaPrestamo>
+</Movimiento>
+<Movimiento Cliente="marianne lala sa">
+<MontoPrestamo>1.0E9</MontoPrestamo>
+<PlazoPrestamo>5</PlazoPrestamo>
+<InteresPrestamo>8.0</InteresPrestamo>
+<MonedaPrestamo>Colon</MonedaPrestamo>
+</Movimiento>
+<Movimiento Cliente="mari as sa">
+<MontoPrestamo>1000000.0</MontoPrestamo>
+<PlazoPrestamo>5</PlazoPrestamo>
+<InteresPrestamo>15.0</InteresPrestamo>
+<MonedaPrestamo>Colon</MonedaPrestamo>
+</Movimiento>
+<Movimiento Cliente="a a a">
+<MontoPrestamo>1000000.0</MontoPrestamo>
+<PlazoPrestamo>5</PlazoPrestamo>
+<InteresPrestamo>15.0</InteresPrestamo>
+<MonedaPrestamo>Colon</MonedaPrestamo>
+</Movimiento>
+<Movimiento Cliente="l a a">
+<MontoPrestamo>1000000.0</MontoPrestamo>
+<PlazoPrestamo>5</PlazoPrestamo>
+<InteresPrestamo>15.0</InteresPrestamo>
+<MonedaPrestamo>Colon</MonedaPrestamo>
+</Movimiento>
+<Movimiento Cliente="a s s">
+<MontoPrestamo>1000000.0</MontoPrestamo>
+<PlazoPrestamo>5</PlazoPrestamo>
+<InteresPrestamo>15.0</InteresPrestamo>
+<MonedaPrestamo>Colon</MonedaPrestamo>
+</Movimiento>
+<Movimiento Cliente="a a a">
+<MontoPrestamo>1000000.0</MontoPrestamo>
+<PlazoPrestamo>5</PlazoPrestamo>
+<InteresPrestamo>15.0</InteresPrestamo>
+<MonedaPrestamo>Colon</MonedaPrestamo>
+</Movimiento>
+<Movimiento Cliente="a a a">
+<MontoPrestamo>1000000.0</MontoPrestamo>
+<PlazoPrestamo>5</PlazoPrestamo>
+<InteresPrestamo>15.0</InteresPrestamo>
+<MonedaPrestamo>Colon</MonedaPrestamo>
+</Movimiento>
+<Movimiento Cliente="a a a">
+<MontoPrestamo>1000000.0</MontoPrestamo>
+<PlazoPrestamo>5</PlazoPrestamo>
+<InteresPrestamo>15.0</InteresPrestamo>
+<MonedaPrestamo>Colon</MonedaPrestamo>
+</Movimiento>
+<Movimiento Cliente="a b c">
+<MontoPrestamo>1000000.0</MontoPrestamo>
+<PlazoPrestamo>5</PlazoPrestamo>
+<InteresPrestamo>15.0</InteresPrestamo>
+<MonedaPrestamo>Colon</MonedaPrestamo>
+</Movimiento>
+<Movimiento Cliente="facebook jimene gonzalez">
+<MontoPrestamo>1000000.0</MontoPrestamo>
+<PlazoPrestamo>5</PlazoPrestamo>
+<InteresPrestamo>15.0</InteresPrestamo>
+<MonedaPrestamo>Colon</MonedaPrestamo>
+</Movimiento>
 </Registro>
