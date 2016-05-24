@@ -198,10 +198,10 @@ public class VistaGUI extends javax.swing.JFrame {
                     .addComponent(jLabel6)
                     .addComponent(jLabel7)
                     .addComponent(jLabel8)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9)
-                    .addComponent(jLabel4))
-                .addGap(180, 180, 180)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(145, 145, 145)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(cNombre)
                     .addComponent(cPA)
@@ -211,7 +211,7 @@ public class VistaGUI extends javax.swing.JFrame {
                     .addComponent(jComboBox1, 0, 144, Short.MAX_VALUE)
                     .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(cMonto))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 521, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -345,6 +345,7 @@ public class VistaGUI extends javax.swing.JFrame {
         IControlador control = factorycontrol.crearControlador();
         control.consultarAmortizacion(dtoAmortizacion, dtoCliente);
         limpiarDatos();
+        llenarTabla();
         
    
 
@@ -419,7 +420,7 @@ public class VistaGUI extends javax.swing.JFrame {
         DefaultTableModel tabla = new DefaultTableModel(null, columnas);
        
             int temporalPlazo = dtoAmortizacion.GetPlazo();
-            for (int i = 0; i < dtoAmortizacion.GetPlazo()+1; i++){
+            for (int i = 0; i <= dtoAmortizacion.GetPlazo()+1; i++){
                 
                 Object[] fila = new Object[5];
                 fila[0] = i+1;
@@ -438,16 +439,18 @@ public class VistaGUI extends javax.swing.JFrame {
           if (Integer.parseInt(cIA.getText()) <= 0){
               JOptionPane.showMessageDialog(null, "El interes anual debe ser mayor a cero", " Alerta",
 		                     JOptionPane.ERROR_MESSAGE);
-              
+              return false;
         } 
           if(Integer.parseInt(cMonto.getText()) <= 0){
                 JOptionPane.showMessageDialog(null, "El monto debe ser mayor a cero", " Alerta",
 		                     JOptionPane.ERROR_MESSAGE);
+                 return false;
           }
           
            if(Integer.parseInt(cPlazo.getText()) <= 0){
                 JOptionPane.showMessageDialog(null, "El plazo debe ser mayor a cero", " Alerta",
 		                     JOptionPane.ERROR_MESSAGE);
+                 return false;
            }
           return true;
     }

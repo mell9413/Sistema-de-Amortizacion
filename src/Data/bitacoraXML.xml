@@ -420,4 +420,16 @@
 <InteresPrestamo>21.0</InteresPrestamo>
 <MonedaPrestamo>Colon</MonedaPrestamo>
 </Movimiento>
+<Movimiento Cliente="a b v">
+<MontoPrestamo>1000000.0</MontoPrestamo>
+<PlazoPrestamo>5</PlazoPrestamo>
+<InteresPrestamo>2.0</InteresPrestamo>
+<MonedaPrestamo>Colon</MonedaPrestamo>
+</Movimiento>
+<Movimiento Cliente="a a a">
+<MontoPrestamo>12.0</MontoPrestamo>
+<PlazoPrestamo>2</PlazoPrestamo>
+<InteresPrestamo>2.0</InteresPrestamo>
+<MonedaPrestamo>Colon</MonedaPrestamo>
+</Movimiento>
 </Registro>
