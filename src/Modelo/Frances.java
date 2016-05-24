@@ -14,7 +14,9 @@ public class Frances extends Amortizacion {
             montoInteresPeriodo =  resultadoDeuda.get(i) * (interesAnual * 0.01);
             totalInteres = montoInteresPeriodo + totalInteres;
             resultadoInteres.add(montoInteresPeriodo);
+           
         }
+        resultadoInteres.addLast(totalInteres);
     }
     
     @Override
@@ -26,6 +28,7 @@ public class Frances extends Amortizacion {
         totalCuota =+ montoCuota + totalCuota;
         resultadoCuota.add(montoCuota);
       }
+      resultadoCuota.addLast(totalCuota);
     }
     
     @Override
@@ -38,6 +41,7 @@ public class Frances extends Amortizacion {
             totalAmortizacion =+ montoAmortizacion + totalAmortizacion;
             resultadoAmortizaciones.add(montoAmortizacion);	
         }
+          resultadoAmortizaciones.addLast(totalAmortizacion);	
     }
     
     @Override

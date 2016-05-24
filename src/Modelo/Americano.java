@@ -34,6 +34,7 @@ public class Americano extends Amortizacion {
                 montoAmortizacion =+ 0;
                 resultadoAmortizaciones.add(montoAmortizacion);
             }
+           resultadoAmortizaciones.addLast(totalAmortizacion); 
     	}
     }
     
@@ -44,6 +45,7 @@ public class Americano extends Amortizacion {
             totalInteres =+ montoInteresPeriodo + totalInteres;
             resultadoInteres.add(montoInteresPeriodo);
     	}
+        resultadoInteres.addLast(totalInteres);
     }
     
     @Override
@@ -58,6 +60,7 @@ public class Americano extends Amortizacion {
                 totalCuota =+ montoCuota + totalCuota;
                 resultadoCuota.add(montoCuota);
             }
+            resultadoCuota.addLast(totalCuota);
         }
     }
 

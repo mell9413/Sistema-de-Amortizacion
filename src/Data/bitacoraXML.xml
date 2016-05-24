@@ -432,4 +432,100 @@
 <InteresPrestamo>2.0</InteresPrestamo>
 <MonedaPrestamo>Colon</MonedaPrestamo>
 </Movimiento>
+<Movimiento Cliente="chamuca a a">
+<MontoPrestamo>1.0E7</MontoPrestamo>
+<PlazoPrestamo>5</PlazoPrestamo>
+<InteresPrestamo>15.0</InteresPrestamo>
+<MonedaPrestamo>Colon</MonedaPrestamo>
+</Movimiento>
+<Movimiento Cliente="a s d">
+<MontoPrestamo>10000.0</MontoPrestamo>
+<PlazoPrestamo>12</PlazoPrestamo>
+<InteresPrestamo>12.0</InteresPrestamo>
+<MonedaPrestamo>Colon</MonedaPrestamo>
+</Movimiento>
+<Movimiento Cliente="a c nj">
+<MontoPrestamo>1111111.0</MontoPrestamo>
+<PlazoPrestamo>2</PlazoPrestamo>
+<InteresPrestamo>1.0</InteresPrestamo>
+<MonedaPrestamo>Colon</MonedaPrestamo>
+</Movimiento>
+<Movimiento Cliente="a c nj">
+<MontoPrestamo>1111111.0</MontoPrestamo>
+<PlazoPrestamo>2</PlazoPrestamo>
+<InteresPrestamo>1.0</InteresPrestamo>
+<MonedaPrestamo>Colon</MonedaPrestamo>
+</Movimiento>
+<Movimiento Cliente="a s s">
+<MontoPrestamo>2.0</MontoPrestamo>
+<PlazoPrestamo>2</PlazoPrestamo>
+<InteresPrestamo>2.0</InteresPrestamo>
+<MonedaPrestamo>Colon</MonedaPrestamo>
+</Movimiento>
+<Movimiento Cliente="a s d">
+<MontoPrestamo>1000.0</MontoPrestamo>
+<PlazoPrestamo>1</PlazoPrestamo>
+<InteresPrestamo>5.0</InteresPrestamo>
+<MonedaPrestamo>Colon</MonedaPrestamo>
+</Movimiento>
+<Movimiento Cliente="a d d">
+<MontoPrestamo>32.0</MontoPrestamo>
+<PlazoPrestamo>32</PlazoPrestamo>
+<InteresPrestamo>2.0</InteresPrestamo>
+<MonedaPrestamo>Colon</MonedaPrestamo>
+</Movimiento>
+<Movimiento Cliente="a s s">
+<MontoPrestamo>121.0</MontoPrestamo>
+<PlazoPrestamo>232</PlazoPrestamo>
+<InteresPrestamo>323.0</InteresPrestamo>
+<MonedaPrestamo>Colon</MonedaPrestamo>
+</Movimiento>
+<Movimiento Cliente="a s d">
+<MontoPrestamo>323.0</MontoPrestamo>
+<PlazoPrestamo>3232</PlazoPrestamo>
+<InteresPrestamo>323.0</InteresPrestamo>
+<MonedaPrestamo>Colon</MonedaPrestamo>
+</Movimiento>
+<Movimiento Cliente="a s s">
+<MontoPrestamo>12222.0</MontoPrestamo>
+<PlazoPrestamo>2</PlazoPrestamo>
+<InteresPrestamo>2.0</InteresPrestamo>
+<MonedaPrestamo>Colon</MonedaPrestamo>
+</Movimiento>
+<Movimiento Cliente="a s s">
+<MontoPrestamo>12222.0</MontoPrestamo>
+<PlazoPrestamo>23</PlazoPrestamo>
+<InteresPrestamo>32.0</InteresPrestamo>
+<MonedaPrestamo>Colon</MonedaPrestamo>
+</Movimiento>
+<Movimiento Cliente="a s d">
+<MontoPrestamo>23.0</MontoPrestamo>
+<PlazoPrestamo>23</PlazoPrestamo>
+<InteresPrestamo>23.0</InteresPrestamo>
+<MonedaPrestamo>Colones</MonedaPrestamo>
+</Movimiento>
+<Movimiento Cliente="z z s">
+<MontoPrestamo>1000000.0</MontoPrestamo>
+<PlazoPrestamo>5</PlazoPrestamo>
+<InteresPrestamo>15.0</InteresPrestamo>
+<MonedaPrestamo>Colones</MonedaPrestamo>
+</Movimiento>
+<Movimiento Cliente="z a a">
+<MontoPrestamo>1000000.0</MontoPrestamo>
+<PlazoPrestamo>5</PlazoPrestamo>
+<InteresPrestamo>15.0</InteresPrestamo>
+<MonedaPrestamo>Colones</MonedaPrestamo>
+</Movimiento>
+<Movimiento Cliente="a a a">
+<MontoPrestamo>1000000.0</MontoPrestamo>
+<PlazoPrestamo>5</PlazoPrestamo>
+<InteresPrestamo>15.0</InteresPrestamo>
+<MonedaPrestamo>Colones</MonedaPrestamo>
+</Movimiento>
+<Movimiento Cliente="a a a">
+<MontoPrestamo>1000000.0</MontoPrestamo>
+<PlazoPrestamo>5</PlazoPrestamo>
+<InteresPrestamo>15.0</InteresPrestamo>
+<MonedaPrestamo>Colones</MonedaPrestamo>
+</Movimiento>
 </Registro>

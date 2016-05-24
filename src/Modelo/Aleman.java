@@ -15,6 +15,7 @@ public class Aleman extends Amortizacion {
             totalAmortizacion =+ montoAmortizacion + totalAmortizacion;
             resultadoAmortizaciones.add(montoAmortizacion);
         }
+        resultadoAmortizaciones.addLast(totalAmortizacion);
     }
     
     @Override
@@ -34,6 +35,7 @@ public class Aleman extends Amortizacion {
             totalInteres =+ montoInteresPeriodo + totalInteres;
             resultadoInteres.add(montoInteresPeriodo);
     	}
+        resultadoInteres.addLast(totalInteres);
     }
     
     @Override
@@ -44,6 +46,7 @@ public class Aleman extends Amortizacion {
                 totalCuota =+ montoCuota + totalCuota;
                 resultadoCuota.add(montoCuota);
             }
+            resultadoCuota.addLast(totalCuota);
         }
     }
 

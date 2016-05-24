@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <tiposMoneda>
-<row><Nombre>Colon</Nombre></row>
-<row><Nombre>Dolar</Nombre></row>
+<row><Nombre>Colones</Nombre></row>
+<row><Nombre>Dolares</Nombre></row>
 </tiposMoneda>

@@ -11,9 +11,6 @@ public class DTOAmortizacion {
     private float montoPrestamo;
     private String tipoAmortizacion;
     private String moneda; 
-    protected double totalCuota;
-    protected double totalAmortizacion;
-    protected double totalInteres;
     private LinkedList<Double> resultadoCuota;
     private LinkedList<Double> resultadoAmortizaciones;
     private LinkedList<Double> resultadoDeuda ;
@@ -26,32 +23,6 @@ public class DTOAmortizacion {
           
     }
     
-    
-    public double getTotalCuota() {
-        return totalCuota;
-    }
-
-    public void setTotalCuota(double totalCuota) {
-        this.totalCuota = totalCuota;
-    }
-
-    public double getTotalAmortizacion() {
-        return totalAmortizacion;
-    }
-
-    public void setTotalAmortizacion(double totalAmortizacion) {
-        this.totalAmortizacion = totalAmortizacion;
-    }
-
-    public double getTotalInteres() {
-        return totalInteres;
-    }
-
-    public void setTotalInteres(double totalInteres) {
-        this.totalInteres = totalInteres;
-    }
-   
-   
 
     public LinkedList<Double> getResultadoCuota() {
         return resultadoCuota;
