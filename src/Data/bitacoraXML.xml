@@ -408,4 +408,16 @@
 <InteresPrestamo>15.0</InteresPrestamo>
 <MonedaPrestamo>Colon</MonedaPrestamo>
 </Movimiento>
+<Movimiento Cliente="Melvin Brenes Gomez">
+<MontoPrestamo>123.0</MontoPrestamo>
+<PlazoPrestamo>45</PlazoPrestamo>
+<InteresPrestamo>12.0</InteresPrestamo>
+<MonedaPrestamo>Colon</MonedaPrestamo>
+</Movimiento>
+<Movimiento Cliente="knkjnkjn knkj nkjnk">
+<MontoPrestamo>12.0</MontoPrestamo>
+<PlazoPrestamo>21</PlazoPrestamo>
+<InteresPrestamo>21.0</InteresPrestamo>
+<MonedaPrestamo>Colon</MonedaPrestamo>
+</Movimiento>
 </Registro>

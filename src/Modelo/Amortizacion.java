@@ -86,5 +86,17 @@ public abstract class Amortizacion {
     public Cliente getCliente() {
         return cliente;
     }
+
+    public double getTotalCuota() {
+        return totalCuota;
+    }
+
+    public double getTotalAmortizacion() {
+        return totalAmortizacion;
+    }
+
+    public double getTotalInteres() {
+        return totalInteres;
+    }
     
 }
