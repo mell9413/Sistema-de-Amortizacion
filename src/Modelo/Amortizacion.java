@@ -31,7 +31,7 @@ public abstract class Amortizacion {
         this.interesAnual = dtoAmortizacion.GetInteres_anual();
         this.cliente = dtoAmortizacion.getCliente();
     }
-
+    
     public float getMontoPrestamo() {
         return montoPrestamo;
     }

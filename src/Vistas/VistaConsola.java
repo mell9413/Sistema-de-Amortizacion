@@ -196,8 +196,9 @@ public class VistaConsola {
     private void mostrarResultados(){
         IControlador control = factorycontrol.crearControlador();
         control.consultarAmortizacion(dtoAmortizacion, dtoCliente);
+        String tipoCambio = control.obtenerTipoCambio();
         System.out.println("***** ***** ***** ***** *****");
-        System.out.println("Tipo de cambio compra BCCR: "+control.obtenerTipoCambio());
+        System.out.println("Tipo de cambio compra BCCR: "+tipoCambio);
         System.out.println("Datos de la consulta");
         System.out.println("Cliente: "+dtoAmortizacion.getCliente().getNombre()+" "+dtoAmortizacion.getCliente().getPrimerApellido()+" "+dtoAmortizacion.getCliente().getSegundoApellido());
         System.out.println("Monto del préstamo otorgado: "+dtoAmortizacion.GetMonto_prestamo()+" colones");
@@ -207,10 +208,15 @@ public class VistaConsola {
         System.out.println("Tabla de Amortización\n");
         System.out.println("Período\t\tDeuda inicial\t\tIntereses\t\tAmortización\t\tCuota\n");
         DecimalFormat decimales = new DecimalFormat("0.00");
-        for (int i=0; i < dtoAmortizacion.GetPlazo(); i++){
-            System.out.println((i+1)+"\t\t"+decimales.format(dtoAmortizacion.getResultadoDeuda().get(i))+"\t\t"+decimales.format(dtoAmortizacion.getResultadoInteres().get(i))+"\t\t"+decimales.format(dtoAmortizacion.getResultadoAmortizaciones().get(i))+"\t\t"+decimales.format(dtoAmortizacion.getResultadoCuota().get(i))); 
+        if (dtoAmortizacion.GetMoneda().equals("Dolares")){
+            dolarizar(tipoCambio);
         }
-        System.out.println("Total\t\t\t\t\t"+decimales.format(dtoAmortizacion.getResultadoInteres().getLast())+"\t\t"+decimales.format(dtoAmortizacion.getResultadoAmortizaciones().getLast())+"\t\t"+decimales.format(dtoAmortizacion.getResultadoCuota().getLast()));
+        else{
+            for (int i=0; i < dtoAmortizacion.GetPlazo(); i++){
+                System.out.println((i+1)+"\t\t"+decimales.format(dtoAmortizacion.getResultadoDeuda().get(i))+"\t\t"+decimales.format(dtoAmortizacion.getResultadoInteres().get(i))+"\t\t"+decimales.format(dtoAmortizacion.getResultadoAmortizaciones().get(i))+"\t\t"+decimales.format(dtoAmortizacion.getResultadoCuota().get(i))); 
+            }
+            System.out.println("Total\t\t\t\t\t"+decimales.format(dtoAmortizacion.getResultadoInteres().getLast())+"\t\t"+decimales.format(dtoAmortizacion.getResultadoAmortizaciones().getLast())+"\t\t"+decimales.format(dtoAmortizacion.getResultadoCuota().getLast()));
+        }        
         System.out.println(control.obtenerFechaBackEnd());
     }
     
@@ -266,5 +272,14 @@ public class VistaConsola {
         else{
             return false;
         }
+    }
+    
+    public void dolarizar(String cambio){
+        double tipoCambio = Double.parseDouble(cambio);
+        DecimalFormat decimales = new DecimalFormat("0.00");
+        for (int i=0; i < dtoAmortizacion.GetPlazo(); i++){
+            System.out.println((i+1)+"\t\t"+decimales.format(dtoAmortizacion.getResultadoDeuda().get(i)*tipoCambio)+"\t\t"+decimales.format(dtoAmortizacion.getResultadoInteres().get(i)*tipoCambio)+"\t\t"+decimales.format(dtoAmortizacion.getResultadoAmortizaciones().get(i)*tipoCambio)+"\t\t"+decimales.format(dtoAmortizacion.getResultadoCuota().get(i)*tipoCambio)); 
+        }
+        System.out.println("Total\t\t\t\t\t"+decimales.format(dtoAmortizacion.getResultadoInteres().getLast()*tipoCambio)+"\t\t"+decimales.format(dtoAmortizacion.getResultadoAmortizaciones().getLast()*tipoCambio)+"\t\t"+decimales.format(dtoAmortizacion.getResultadoCuota().getLast()*tipoCambio));
     }
 }

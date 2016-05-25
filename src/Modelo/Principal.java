@@ -12,8 +12,8 @@ public class Principal {
         VistaGUI vista = new VistaGUI();
         vista.setVisible(true);
         
-//        VistaConsola consola = new VistaConsola();
-//        consola.run();
+        VistaConsola consola = new VistaConsola();
+        consola.run();
         
     }
 }

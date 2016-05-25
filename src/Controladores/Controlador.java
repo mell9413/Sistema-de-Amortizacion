@@ -69,6 +69,5 @@ public class Controlador implements IControlador{
     public String obtenerFechaBackEnd() {
         IAdaptador backEnd= (IAdaptador) factoryAdaptador.get(1);
         return backEnd.obtenerResultado();
-    }
-    
+    }    
 }

@@ -244,6 +244,7 @@ public class VistaGUI extends javax.swing.JFrame {
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 692, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labelChuky, javax.swing.GroupLayout.PREFERRED_SIZE, 611, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(11, 11, 11)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel18)
                             .addComponent(jLabel19)
@@ -254,11 +255,10 @@ public class VistaGUI extends javax.swing.JFrame {
                         .addGap(27, 27, 27)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(cltNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(JrMonto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jrPlazo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jrIA, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jrAmortizacion, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(JrMonto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jrPlazo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jrIA, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jrAmortizacion, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(labelTipoCambio, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(42, 42, 42))
             .addGroup(layout.createSequentialGroup()
@@ -296,24 +296,9 @@ public class VistaGUI extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(cPlazo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5))
-                        .addGap(19, 19, 19)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(cIA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6))
-                        .addGap(26, 26, 26)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel7))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel8))
-                        .addGap(62, 62, 62)
-                        .addComponent(jButton1)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel5)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(34, 34, 34)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel10)
                             .addComponent(labelTipoCambio))
@@ -336,9 +321,26 @@ public class VistaGUI extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel21)
-                            .addComponent(jrAmortizacion))
-                        .addGap(19, 19, 19)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jrAmortizacion))))
+                .addGap(19, 19, 19)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(cIA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel6))
+                        .addGap(26, 26, 26)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel7))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel8))
+                        .addGap(62, 62, 62)
+                        .addComponent(jButton1)
+                        .addContainerGap(170, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
                         .addComponent(labelChuky, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(25, 25, 25))))
@@ -406,20 +408,19 @@ public class VistaGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_cIAKeyTyped
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-  
         if (validarVista()){ 
             enviarDatos();
             IControlador control = factorycontrol.crearControlador();
             control.consultarAmortizacion(dtoAmortizacion, dtoCliente);
-            limpiarDatos();
+            //limpiarDatos();
             llenarTabla();
             mostrarDatos();
             labelTipoCambio.setText(control.obtenerTipoCambio());
-            labelChuky.setText(control.obtenerFechaBackEnd());
+            labelChuky.setText(control.obtenerFechaBackEnd());       
+            if(dtoAmortizacion.GetMoneda().equals("Dolares")){
+                dolarizar();
+            }
         };
-      
-      
-        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
@@ -498,7 +499,7 @@ public class VistaGUI extends javax.swing.JFrame {
     
     private void mostrarDatos(){
           cltNombre.setText(dtoAmortizacion.getCliente().getNombre() + " " + dtoAmortizacion.getCliente().getPrimerApellido() + " " + dtoAmortizacion.getCliente().getSegundoApellido());
-          JrMonto.setText(String.valueOf(dtoAmortizacion.GetMonto_prestamo()) + " " + dtoAmortizacion.GetMoneda());
+          JrMonto.setText(String.valueOf(dtoAmortizacion.GetMonto_prestamo()) + " de colones");
           jrPlazo.setText(String.valueOf(dtoAmortizacion.GetPlazo()) + "" + " años");
           jrIA.setText(String.valueOf(dtoAmortizacion.GetInteres_anual()) + "" + " %");
           jrAmortizacion.setText(dtoAmortizacion.GetTipoAmortizacion());
@@ -510,7 +511,7 @@ public class VistaGUI extends javax.swing.JFrame {
      private void llenarTabla(){
          
          DecimalFormat decimales = new DecimalFormat("0.00");   
-         String [] columnas = {"Periodo K", "Deuda", "Interes", "Cuota", "Amortizacion"};
+         String [] columnas = {"Periodo K", "Deuda", "Interes", "Amortizacion", "Couta"};
          DefaultTableModel tabla = new DefaultTableModel(null, columnas);
        
             for (int i = 0; i <= dtoAmortizacion.GetPlazo(); i++){
@@ -520,16 +521,16 @@ public class VistaGUI extends javax.swing.JFrame {
                     fila[0] = "Total";
                     fila[1] = decimales.format(0);
                     fila[2] = decimales.format(dtoAmortizacion.getResultadoInteres().getLast());
-                    fila[3] = decimales.format(dtoAmortizacion.getResultadoCuota().getLast());
-                    fila[4] = decimales.format(dtoAmortizacion.getResultadoAmortizaciones().getLast());
+                    fila[3] = decimales.format(dtoAmortizacion.getResultadoAmortizaciones().getLast());
+                    fila[4] = decimales.format(dtoAmortizacion.getResultadoCuota().getLast());
                     tabla.addRow(fila);
                 }
                 else{
                     fila[0] = i+1;
                     fila[1] = decimales.format(dtoAmortizacion.getResultadoDeuda().get(i));
                     fila[2] = decimales.format(dtoAmortizacion.getResultadoInteres().get(i));
-                    fila[3] = decimales.format(dtoAmortizacion.getResultadoCuota().get(i));
-                    fila[4] = decimales.format(dtoAmortizacion.getResultadoAmortizaciones().get(i));
+                    fila[3] = decimales.format(dtoAmortizacion.getResultadoAmortizaciones().get(i));
+                    fila[4] = decimales.format(dtoAmortizacion.getResultadoCuota().get(i));
                     tabla.addRow(fila);
                 }
                 tablaResultados.setModel(tabla);
@@ -641,4 +642,17 @@ public class VistaGUI extends javax.swing.JFrame {
     private DTOCliente dtoCliente = new DTOCliente();
     private DTOAmortizacion dtoAmortizacion = new DTOAmortizacion();
     private  FactoryControlador factorycontrol = new FactoryConcretoControlador();
+    
+    private void dolarizar(){
+        DecimalFormat decimales = new DecimalFormat("0.00");
+        int cols = tablaResultados.getColumnCount();
+        int fils = tablaResultados.getRowCount();
+        double tipoCambio =Double.parseDouble(labelTipoCambio.getText());
+        for(int i=0; i<fils; i++) {
+            for(int j=1; j<cols; j++){
+               double temporal =  Double.parseDouble(tablaResultados.getValueAt(i,j).toString().replace(",","."));
+               tablaResultados.setValueAt(decimales.format(temporal*tipoCambio), i, j); 
+            }
+        }
+    }
 }
