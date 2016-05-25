@@ -93,7 +93,7 @@ public class VistaConsola {
     }
     
     private void ingresarMoneda() throws IOException, JDOMException{
-        System.out.println(">>> Por favor ingrese el numero correspondiente al Tipo de Moneda:");
+        System.out.println(">>> Por favor ingrese el numero correspondiente al Tipo de Moneda en la que desea ver la Tabla:");
         ArrayList tiposAmortizacion = Lector.obtenerMonedas();
         int contador=0;
         for (Object tipo : tiposAmortizacion) {
@@ -199,7 +199,7 @@ public class VistaConsola {
         System.out.println("Tipo de cambio compra BCCR: "+control.obtenerTipoCambio());
         System.out.println("Datos de la consulta");
         System.out.println("Cliente: "+dtoAmortizacion.getCliente().getNombre()+" "+dtoAmortizacion.getCliente().getPrimerApellido()+" "+dtoAmortizacion.getCliente().getSegundoApellido());
-        System.out.println("Monto del préstamo otorgado: "+dtoAmortizacion.GetMonto_prestamo()+" "+dtoAmortizacion.GetMoneda());
+        System.out.println("Monto del préstamo otorgado: "+dtoAmortizacion.GetMonto_prestamo()+" colones");
         System.out.println("Plazo del préstamo: "+dtoAmortizacion.GetPlazo()+" años");
         System.out.println("Interés anual: "+dtoAmortizacion.GetInteres_anual()+" %");
         System.out.println("Sistema de amortización: "+dtoAmortizacion.GetTipoAmortizacion()+"\n");
