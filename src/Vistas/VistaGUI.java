@@ -415,7 +415,7 @@ public class VistaGUI extends javax.swing.JFrame {
             labelTipoCambio.setText(control.obtenerTipoCambio());
             labelChuky.setText(control.obtenerFechaBackEnd());       
             if(dtoAmortizacion.GetMoneda().equals("Dolares")){
-                control.cambioMoneda(dtoAmortizacion);
+                control.cambioMoneda(dtoAmortizacion,Double.parseDouble(labelTipoCambio.getText()));
             }
             //limpiarDatos();
             llenarTabla();

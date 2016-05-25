@@ -209,7 +209,7 @@ public class VistaConsola {
         System.out.println("Período\t\tDeuda inicial\t\tIntereses\t\tAmortización\t\tCuota\n");
         DecimalFormat decimales = new DecimalFormat("0.00");
         if(dtoAmortizacion.GetMoneda().equals("Dolares")){
-                control.cambioMoneda(dtoAmortizacion);
+                control.cambioMoneda(dtoAmortizacion,Double.parseDouble(tipoCambio));
         }        
         for (int i=0; i < dtoAmortizacion.GetPlazo(); i++){
             System.out.println((i+1)+"\t\t"+decimales.format(dtoAmortizacion.getResultadoDeuda().get(i))+"\t\t"+decimales.format(dtoAmortizacion.getResultadoInteres().get(i))+"\t\t"+decimales.format(dtoAmortizacion.getResultadoAmortizaciones().get(i))+"\t\t"+decimales.format(dtoAmortizacion.getResultadoCuota().get(i))); 

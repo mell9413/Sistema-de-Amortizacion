@@ -73,12 +73,11 @@ public class Controlador implements IControlador{
     }    
 
     @Override
-    public void cambioMoneda(DTOAmortizacion dtoAmortizacion) {
+    public void cambioMoneda(DTOAmortizacion dtoAmortizacion, double tipoCambio) {
         LinkedList<Double> temporalCouta = new LinkedList<Double>();
         LinkedList<Double> temporalAmortizacion = new LinkedList<Double>();
         LinkedList<Double> temporalDeuda = new LinkedList<Double>();
         LinkedList<Double> temporalInteres = new LinkedList<Double>();
-        double tipoCambio = Double.parseDouble(obtenerTipoCambio());
         for(int i = 0; i<=dtoAmortizacion.GetPlazo();i++){
             if(i==dtoAmortizacion.GetPlazo()){
                 temporalCouta.addLast(tipoCambio * dtoAmortizacion.getResultadoCuota().getLast());
