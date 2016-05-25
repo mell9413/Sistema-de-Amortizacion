@@ -8,6 +8,7 @@ import Modelo.Bitacora.*;
 import Modelo.Cliente;
 import Modelo.Factorys.*;
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 public class Controlador implements IControlador{
     
@@ -70,4 +71,30 @@ public class Controlador implements IControlador{
         IAdaptador backEnd= (IAdaptador) factoryAdaptador.get(1);
         return backEnd.obtenerResultado();
     }    
+
+    @Override
+    public void cambioMoneda(DTOAmortizacion dtoAmortizacion) {
+        LinkedList<Double> temporalCouta = new LinkedList<Double>();
+        LinkedList<Double> temporalAmortizacion = new LinkedList<Double>();
+        LinkedList<Double> temporalDeuda = new LinkedList<Double>();
+        LinkedList<Double> temporalInteres = new LinkedList<Double>();
+        double tipoCambio = Double.parseDouble(obtenerTipoCambio());
+        for(int i = 0; i<=dtoAmortizacion.GetPlazo();i++){
+            if(i==dtoAmortizacion.GetPlazo()){
+                temporalCouta.addLast(tipoCambio * dtoAmortizacion.getResultadoCuota().getLast());
+                temporalAmortizacion.addLast(tipoCambio * dtoAmortizacion.getResultadoAmortizaciones().getLast());
+                temporalInteres.addLast(tipoCambio * dtoAmortizacion.getResultadoInteres().getLast());
+            }
+            else{    
+                temporalCouta.add(tipoCambio * dtoAmortizacion.getResultadoCuota().get(i));
+                temporalAmortizacion.add(tipoCambio * dtoAmortizacion.getResultadoAmortizaciones().get(i));
+                temporalDeuda.add(tipoCambio * dtoAmortizacion.getResultadoDeuda().get(i));
+                temporalInteres.add(tipoCambio * dtoAmortizacion.getResultadoInteres().get(i));
+            }
+        }
+        dtoAmortizacion.setResultadoAmortizaciones(temporalAmortizacion);
+        dtoAmortizacion.setResultadoCuota(temporalCouta);
+        dtoAmortizacion.setResultadoDeuda(temporalDeuda);
+        dtoAmortizacion.setResultadoInteres(temporalInteres);
+    }
 }

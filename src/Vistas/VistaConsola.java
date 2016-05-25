@@ -208,15 +208,13 @@ public class VistaConsola {
         System.out.println("Tabla de Amortización\n");
         System.out.println("Período\t\tDeuda inicial\t\tIntereses\t\tAmortización\t\tCuota\n");
         DecimalFormat decimales = new DecimalFormat("0.00");
-        if (dtoAmortizacion.GetMoneda().equals("Dolares")){
-            dolarizar(tipoCambio);
-        }
-        else{
-            for (int i=0; i < dtoAmortizacion.GetPlazo(); i++){
-                System.out.println((i+1)+"\t\t"+decimales.format(dtoAmortizacion.getResultadoDeuda().get(i))+"\t\t"+decimales.format(dtoAmortizacion.getResultadoInteres().get(i))+"\t\t"+decimales.format(dtoAmortizacion.getResultadoAmortizaciones().get(i))+"\t\t"+decimales.format(dtoAmortizacion.getResultadoCuota().get(i))); 
-            }
-            System.out.println("Total\t\t\t\t\t"+decimales.format(dtoAmortizacion.getResultadoInteres().getLast())+"\t\t"+decimales.format(dtoAmortizacion.getResultadoAmortizaciones().getLast())+"\t\t"+decimales.format(dtoAmortizacion.getResultadoCuota().getLast()));
+        if(dtoAmortizacion.GetMoneda().equals("Dolares")){
+                control.cambioMoneda(dtoAmortizacion);
         }        
+        for (int i=0; i < dtoAmortizacion.GetPlazo(); i++){
+            System.out.println((i+1)+"\t\t"+decimales.format(dtoAmortizacion.getResultadoDeuda().get(i))+"\t\t"+decimales.format(dtoAmortizacion.getResultadoInteres().get(i))+"\t\t"+decimales.format(dtoAmortizacion.getResultadoAmortizaciones().get(i))+"\t\t"+decimales.format(dtoAmortizacion.getResultadoCuota().get(i))); 
+        }
+        System.out.println("Total\t\t\t\t\t"+decimales.format(dtoAmortizacion.getResultadoInteres().getLast())+"\t\t"+decimales.format(dtoAmortizacion.getResultadoAmortizaciones().getLast())+"\t\t"+decimales.format(dtoAmortizacion.getResultadoCuota().getLast()));      
         System.out.println(control.obtenerFechaBackEnd());
     }
     
@@ -272,14 +270,5 @@ public class VistaConsola {
         else{
             return false;
         }
-    }
-    
-    public void dolarizar(String cambio){
-        double tipoCambio = Double.parseDouble(cambio);
-        DecimalFormat decimales = new DecimalFormat("0.00");
-        for (int i=0; i < dtoAmortizacion.GetPlazo(); i++){
-            System.out.println((i+1)+"\t\t"+decimales.format(dtoAmortizacion.getResultadoDeuda().get(i)*tipoCambio)+"\t\t"+decimales.format(dtoAmortizacion.getResultadoInteres().get(i)*tipoCambio)+"\t\t"+decimales.format(dtoAmortizacion.getResultadoAmortizaciones().get(i)*tipoCambio)+"\t\t"+decimales.format(dtoAmortizacion.getResultadoCuota().get(i)*tipoCambio)); 
-        }
-        System.out.println("Total\t\t\t\t\t"+decimales.format(dtoAmortizacion.getResultadoInteres().getLast()*tipoCambio)+"\t\t"+decimales.format(dtoAmortizacion.getResultadoAmortizaciones().getLast()*tipoCambio)+"\t\t"+decimales.format(dtoAmortizacion.getResultadoCuota().getLast()*tipoCambio));
     }
 }

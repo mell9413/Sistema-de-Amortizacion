@@ -412,14 +412,14 @@ public class VistaGUI extends javax.swing.JFrame {
             enviarDatos();
             IControlador control = factorycontrol.crearControlador();
             control.consultarAmortizacion(dtoAmortizacion, dtoCliente);
-            //limpiarDatos();
-            llenarTabla();
-            mostrarDatos();
             labelTipoCambio.setText(control.obtenerTipoCambio());
             labelChuky.setText(control.obtenerFechaBackEnd());       
             if(dtoAmortizacion.GetMoneda().equals("Dolares")){
-                dolarizar();
+                control.cambioMoneda(dtoAmortizacion);
             }
+            //limpiarDatos();
+            llenarTabla();
+            mostrarDatos();
         };
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -642,17 +642,4 @@ public class VistaGUI extends javax.swing.JFrame {
     private DTOCliente dtoCliente = new DTOCliente();
     private DTOAmortizacion dtoAmortizacion = new DTOAmortizacion();
     private  FactoryControlador factorycontrol = new FactoryConcretoControlador();
-    
-    private void dolarizar(){
-        DecimalFormat decimales = new DecimalFormat("0.00");
-        int cols = tablaResultados.getColumnCount();
-        int fils = tablaResultados.getRowCount();
-        double tipoCambio =Double.parseDouble(labelTipoCambio.getText());
-        for(int i=0; i<fils; i++) {
-            for(int j=1; j<cols; j++){
-               double temporal =  Double.parseDouble(tablaResultados.getValueAt(i,j).toString().replace(",","."));
-               tablaResultados.setValueAt(decimales.format(temporal*tipoCambio), i, j); 
-            }
-        }
-    }
 }

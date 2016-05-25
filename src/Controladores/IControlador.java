@@ -19,4 +19,5 @@ public interface IControlador {
     public void consultarAmortizacion(DTOAmortizacion dtoAmortizacion,DTOCliente dtoCliente);
     public String obtenerTipoCambio ();
     public String obtenerFechaBackEnd();
+    public void cambioMoneda(DTOAmortizacion dtoAmortizacion);
 }
