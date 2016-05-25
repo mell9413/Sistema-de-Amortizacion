@@ -4,11 +4,12 @@ import Controladores.*;
 import DTO.*;
 import Data.Lector;
 import Modelo.Factorys.*;
-import Validaciones.Validar;
 import java.io.IOException;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import org.jdom2.JDOMException;
 
 public class VistaConsola {
@@ -34,7 +35,7 @@ public class VistaConsola {
     private void ingresarNombre(){
         System.out.println(">>> Por favor ingrese unicamente su Nombre:");
         nombre = entrada.nextLine();
-        if (Validar.validarLetras(nombre)){
+        if (validarLetras(nombre)){
             ingresarPrimerApellido();
         }
         else{
@@ -45,7 +46,7 @@ public class VistaConsola {
     private void ingresarPrimerApellido(){
         System.out.println(">>> Por favor ingrese unicamente su Primer Apellido:");
         primerApellido = entrada.nextLine();
-        if (Validar.validarLetras(primerApellido)){
+        if (validarLetras(primerApellido)){
             ingresarSegundoApellido();
         }
         else{
@@ -56,7 +57,7 @@ public class VistaConsola {
     private void ingresarSegundoApellido(){
         System.out.println(">>> Por favor ingrese unicamente su Segundo Apellido:");
         segundoApellido = entrada.nextLine();
-        if (!Validar.validarLetras(segundoApellido)){
+        if (!validarLetras(segundoApellido)){
             ingresarSegundoApellido();
         }
     }
@@ -70,9 +71,9 @@ public class VistaConsola {
         }
         seleccion = entrada.nextLine();
         try{
-            if(Validar.validarNumeros(seleccion)){
+            if(validarNumeros(seleccion)){
                 tipoAmortizacion = Integer.parseInt(seleccion);
-                if (Validar.validarRango(tipoAmortizacion,contador)){
+                if (validarRango(tipoAmortizacion,contador)){
                     nombreAmortizacion = tiposAmortizacion.get(tipoAmortizacion-1).toString();
                 }
                 else{
@@ -101,9 +102,9 @@ public class VistaConsola {
         }
         seleccion = entrada.nextLine();
         try{
-            if(Validar.validarNumeros(seleccion)){
+            if(validarNumeros(seleccion)){
                 tipoMoneda = Integer.parseInt(seleccion);
-                if (Validar.validarRango(tipoMoneda,contador)){
+                if (validarRango(tipoMoneda,contador)){
                     nombreMoneda = tiposAmortizacion.get(tipoMoneda-1).toString();
                 }
                 else{
@@ -127,7 +128,7 @@ public class VistaConsola {
         System.out.println(">>> Por favor ingrese el Monto del Préstamo otorgado:");
         seleccion = entrada.nextLine();
         try{
-            if(Validar.validarDouble(seleccion)){
+            if(validarDouble(seleccion)){
                 montoPrestamo = (float) Double.parseDouble(seleccion);
             }
             else{
@@ -146,7 +147,7 @@ public class VistaConsola {
         System.out.println(">>> Por favor ingrese el Plazo del Préstamo en años:");
         seleccion = entrada.nextLine();
         try{
-            if(Validar.validarNumeros(seleccion)){
+            if(validarNumeros(seleccion)){
                 plazo = Integer.parseInt(seleccion);
             }
             else{
@@ -165,7 +166,7 @@ public class VistaConsola {
         System.out.println(">>> Por favor ingrese el Interés Anual:");
         seleccion = entrada.nextLine();
         try{
-            if(Validar.validarDouble(seleccion)){
+            if(validarDouble(seleccion)){
                 interes = Float.parseFloat(seleccion);
             }
             else{
@@ -225,6 +226,45 @@ public class VistaConsola {
             enviarDatos();
             mostrarResultados();
             entrada.nextLine();
+        }
+    }
+    
+    private boolean validarLetras(String palabra){
+        Pattern pat = Pattern.compile("([a-z]|[A-Z]|\\\\s)+");
+        Matcher mat = pat.matcher(palabra);
+        if (mat.matches()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+    private boolean validarNumeros(String dato){
+        Pattern pat = Pattern.compile("[0-9]*");
+        Matcher mat = pat.matcher(dato);
+        if (mat.matches()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+    private boolean validarDouble(String dato){
+        Pattern pat = Pattern.compile("([0-9]*|[.]|\\\\s)+");
+        Matcher mat = pat.matcher(dato);
+        if (mat.matches()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+    private boolean validarRango(int seleccion, int largo){
+        if(seleccion != 0 && seleccion <=largo){
+            return true;
+        }
+        else{
+            return false;
         }
     }
 }
