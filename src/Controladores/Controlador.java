@@ -7,6 +7,7 @@ import Modelo.Amortizacion;
 import Modelo.Bitacora.*;
 import Modelo.Cliente;
 import Modelo.Factorys.*;
+import Observador.*;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
@@ -14,27 +15,23 @@ public class Controlador implements IControlador{
     
     private FactoryAmortizacion factoryAmortizacion;
     private FactoryCliente factoryCliente;
-    private ArrayList factoryIEscritor;
+    private ISubject subject;
     private ArrayList factoryAdaptador;
                     
     public Controlador(){
         this.factoryAmortizacion = new FactoryConcretoAmortizacion();
         this.factoryCliente = new FactoryConcretoCliente();
-        this.factoryIEscritor = new ArrayList();
-        this.factoryIEscritor.add(new FactoryConcretoBitacora().crearBitacora("BitacoraCSV"));
-        this.factoryIEscritor.add(new FactoryConcretoBitacora().crearBitacora("BitacoraXML"));
+        this.subject = new Subject();
         this.factoryAdaptador = new ArrayList();
         this.factoryAdaptador.add(new FactoryConcretoAdaptador().crearAdaptador("WebServicesClientBCCR"));
         this.factoryAdaptador.add(new FactoryConcretoAdaptador().crearAdaptador("ClientSocket"));
+        new BitacoraCSV((Subject) subject);
+        new BitacoraXML((Subject) subject);
     }
 
     @Override
     public void registrarBitacora(DTOAmortizacion dtoAmortizacion) {
-        IEscritor elemnt;
-        for (Object factoryIEscritor1 : factoryIEscritor) {
-            elemnt = (IEscritor) factoryIEscritor1;
-            elemnt.escribirMovimiento(dtoAmortizacion);
-        }
+        subject.setSubjectState(dtoAmortizacion);
     }
 
     @Override

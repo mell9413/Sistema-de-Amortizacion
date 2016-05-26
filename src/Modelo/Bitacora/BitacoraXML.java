@@ -2,6 +2,7 @@ package Modelo.Bitacora;
 
 import Data.Lector;
 import DTO.DTOAmortizacion;
+import Observador.*;
 import java.io.*;
 import java.util.logging.*;
 import javax.xml.parsers.*;
@@ -12,7 +13,13 @@ import org.w3c.dom.*;
 
 public class BitacoraXML implements IEscritor{
     private static String nombreArchivo="bitacoraXML.xml";
-
+    private Subject concreteSubject;
+    
+    public BitacoraXML(Subject subject){
+        concreteSubject = subject;
+        concreteSubject.AgregarObserver(this);
+    }
+    
     @Override
     public void crearArchivo() {         
         try {
@@ -43,7 +50,8 @@ public class BitacoraXML implements IEscritor{
     }
 
     @Override
-    public void escribirMovimiento(DTOAmortizacion dtoAmortizacion) {        
+    public void updateEscribirMovimiento() {
+        DTOAmortizacion dtoAmortizacion = concreteSubject.getSubjectState();
         if (existeArchivo()){
             try {
                 DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
@@ -79,7 +87,7 @@ public class BitacoraXML implements IEscritor{
 	}
         else{
             crearArchivo();
-            escribirMovimiento(dtoAmortizacion);
+            updateEscribirMovimiento();
         }
     }
 

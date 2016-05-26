@@ -7,6 +7,7 @@ package Modelo.Bitacora;
 
 import DTO.DTOAmortizacion;
 import Data.Lector;
+import Observador.*;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -20,8 +21,13 @@ import java.util.logging.Logger;
 public class BitacoraCSV implements IEscritor{
     
     private static String nombreArchivo = "bitacoraCSV.csv";
+    private Subject concreteSubject;
     
-
+    public BitacoraCSV(Subject subject){
+        concreteSubject = subject;
+        concreteSubject.AgregarObserver(this);
+    }
+    
     @Override
     public void crearArchivo() {
         if (existeArchivo() == false)
@@ -52,7 +58,8 @@ public class BitacoraCSV implements IEscritor{
     }
 
     @Override
-    public void escribirMovimiento(DTOAmortizacion dtoAmortizacion) {
+    public void updateEscribirMovimiento() {
+        DTOAmortizacion dtoAmortizacion = concreteSubject.getSubjectState();
         if (existeArchivo()){
             try {                
                 FileWriter file = new FileWriter(Lector.obtenerRutaCarpeta()+nombreArchivo,true);
@@ -70,7 +77,7 @@ public class BitacoraCSV implements IEscritor{
         }
         else{
             crearArchivo();
-            escribirMovimiento(dtoAmortizacion);
+            updateEscribirMovimiento();
         }
     }
     
