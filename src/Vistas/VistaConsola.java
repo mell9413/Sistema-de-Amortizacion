@@ -16,8 +16,8 @@ public class VistaConsola {
     
     private DTOCliente dtoCliente = new DTOCliente();
     private DTOAmortizacion dtoAmortizacion = new DTOAmortizacion();
-    private  FactoryControlador factorycontrol = new FactoryConcretoControlador();
-    
+    private IControlador control = Controlador.getInstancia();
+        
     Scanner entrada = new Scanner (System.in);
     String seleccion="";
     private String nombre;
@@ -194,7 +194,6 @@ public class VistaConsola {
     }
     
     private void mostrarResultados(){
-        IControlador control = factorycontrol.crearControlador();
         control.consultarAmortizacion(dtoAmortizacion, dtoCliente);
         String tipoCambio = control.obtenerTipoCambio();
         System.out.println("***** ***** ***** ***** *****");

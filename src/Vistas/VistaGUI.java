@@ -5,11 +5,11 @@
  */
 package Vistas;
 
+import Controladores.Controlador;
 import Controladores.IControlador;
 import DTO.DTOAmortizacion;
 import DTO.DTOCliente;
 import Data.Lector;
-import Modelo.Factorys.*;
 import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.text.DecimalFormat;
@@ -410,7 +410,6 @@ public class VistaGUI extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         if (validarVista()){ 
             enviarDatos();
-            IControlador control = factorycontrol.crearControlador();
             control.consultarAmortizacion(dtoAmortizacion, dtoCliente);
             labelTipoCambio.setText(control.obtenerTipoCambio());
             labelChuky.setText(control.obtenerFechaBackEnd());       
@@ -641,5 +640,5 @@ public class VistaGUI extends javax.swing.JFrame {
 
     private DTOCliente dtoCliente = new DTOCliente();
     private DTOAmortizacion dtoAmortizacion = new DTOAmortizacion();
-    private  FactoryControlador factorycontrol = new FactoryConcretoControlador();
+    private IControlador control = Controlador.getInstancia();
 }

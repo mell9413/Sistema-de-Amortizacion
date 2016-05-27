@@ -13,12 +13,17 @@ import java.util.LinkedList;
 
 public class Controlador implements IControlador{
     
+    private static IControlador instancia = new Controlador();
     private FactoryAmortizacion factoryAmortizacion;
     private FactoryCliente factoryCliente;
     private ISubject subject;
     private ArrayList factoryAdaptador;
-                    
-    public Controlador(){
+         
+    public static IControlador getInstancia(){
+        return instancia;
+    }
+    
+    private Controlador(){
         this.factoryAmortizacion = new FactoryConcretoAmortizacion();
         this.factoryCliente = new FactoryConcretoCliente();
         this.subject = new Subject();
