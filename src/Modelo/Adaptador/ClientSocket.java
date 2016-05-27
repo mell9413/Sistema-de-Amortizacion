@@ -35,8 +35,7 @@ public class ClientSocket implements IAdaptador {
             socketClientChuky.close();
         }
         catch(Exception e ){
-            System.out.println("Error: "+e.getMessage());
-            resultadoBackEndChuky = null;
+            resultadoBackEndChuky = "No se ha podido conectar con el servidor";
         }
     }
 

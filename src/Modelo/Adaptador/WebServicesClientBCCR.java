@@ -10,9 +10,15 @@ public class WebServicesClientBCCR implements IAdaptador{
     
     @Override
     public void conectarseServidor() {
-        cr.fi.bccr.sdde.ws.WsIndicadoresEconomicos cliente = new cr.fi.bccr.sdde.ws.WsIndicadoresEconomicos();
-        tipoCambio = cliente.getWsIndicadoresEconomicosSoap().obtenerIndicadoresEconomicosXML("317", getFechaActual(), getFechaActual(), "Mell", "N");
-        tipoCambio = tipoCambio.substring(196,204);
+        try {
+            cr.fi.bccr.sdde.ws.WsIndicadoresEconomicos cliente = new cr.fi.bccr.sdde.ws.WsIndicadoresEconomicos();
+            tipoCambio = cliente.getWsIndicadoresEconomicosSoap().obtenerIndicadoresEconomicosXML("317", getFechaActual(), getFechaActual(), "Mell", "N");
+            tipoCambio = tipoCambio.substring(196,204);
+        }
+        catch(Exception ex){
+            tipoCambio = "No se ha podido conectar con el servidor";
+        }
+        
     }
 
     @Override

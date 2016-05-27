@@ -64,6 +64,10 @@ public class BitacoraXML implements IEscritor{
                 movimiento.setAttribute("Cliente", String.valueOf(dtoAmortizacion.getCliente().getNombre() +" "+dtoAmortizacion.getCliente().getPrimerApellido()+" "+dtoAmortizacion.getCliente().getSegundoApellido()));
                 raiz.appendChild(movimiento);
                 
+                Element tipoAmortizacion = doc.createElement("TipoAmortizacion");
+                tipoAmortizacion.setTextContent(String.valueOf(dtoAmortizacion.GetTipoAmortizacion()));
+                movimiento.appendChild(tipoAmortizacion);
+                
                 Element montoPrestamo = doc.createElement("MontoPrestamo");
                 montoPrestamo.setTextContent(String.valueOf(dtoAmortizacion.GetMonto_prestamo()));
                 movimiento.appendChild(montoPrestamo);

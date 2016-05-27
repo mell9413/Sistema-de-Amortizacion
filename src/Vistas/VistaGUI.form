@@ -83,12 +83,12 @@
                       </Group>
                       <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="cltNombre" max="32767" attributes="0"/>
-                          <Component id="JrMonto" max="32767" attributes="0"/>
-                          <Component id="jrPlazo" max="32767" attributes="0"/>
+                          <Component id="jrPlazo" pref="352" max="32767" attributes="0"/>
                           <Component id="jrIA" max="32767" attributes="0"/>
-                          <Component id="jrAmortizacion" min="-2" pref="153" max="-2" attributes="0"/>
-                          <Component id="labelTipoCambio" alignment="0" min="-2" pref="164" max="-2" attributes="0"/>
+                          <Component id="labelTipoCambio" max="32767" attributes="0"/>
+                          <Component id="cltNombre" alignment="0" max="32767" attributes="0"/>
+                          <Component id="JrMonto" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jrAmortizacion" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
