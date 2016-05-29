@@ -82,15 +82,15 @@ public class Controlador implements IControlador{
         LinkedList<Double> temporalInteres = new LinkedList<Double>();
         for(int i = 0; i<=dtoAmortizacion.GetPlazo();i++){
             if(i==dtoAmortizacion.GetPlazo()){
-                temporalCouta.addLast(tipoCambio * dtoAmortizacion.getResultadoCuota().getLast());
-                temporalAmortizacion.addLast(tipoCambio * dtoAmortizacion.getResultadoAmortizaciones().getLast());
-                temporalInteres.addLast(tipoCambio * dtoAmortizacion.getResultadoInteres().getLast());
+                temporalCouta.addLast(dtoAmortizacion.getResultadoCuota().getLast() / tipoCambio);
+                temporalAmortizacion.addLast(dtoAmortizacion.getResultadoAmortizaciones().getLast()/ tipoCambio);
+                temporalInteres.addLast(dtoAmortizacion.getResultadoInteres().getLast()/ tipoCambio);
             }
             else{    
-                temporalCouta.add(tipoCambio * dtoAmortizacion.getResultadoCuota().get(i));
-                temporalAmortizacion.add(tipoCambio * dtoAmortizacion.getResultadoAmortizaciones().get(i));
-                temporalDeuda.add(tipoCambio * dtoAmortizacion.getResultadoDeuda().get(i));
-                temporalInteres.add(tipoCambio * dtoAmortizacion.getResultadoInteres().get(i));
+                temporalCouta.add(dtoAmortizacion.getResultadoCuota().get(i)/ tipoCambio);
+                temporalAmortizacion.add(dtoAmortizacion.getResultadoAmortizaciones().get(i)/ tipoCambio);
+                temporalDeuda.add(dtoAmortizacion.getResultadoDeuda().get(i)/ tipoCambio);
+                temporalInteres.add(dtoAmortizacion.getResultadoInteres().get(i)/ tipoCambio);
             }
         }
         dtoAmortizacion.setResultadoAmortizaciones(temporalAmortizacion);
